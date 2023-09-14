@@ -1,0 +1,24 @@
+.product-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  overflow: auto;
+}
+.product-card-container {
+  border: solid var(--primary-color);
+  margin: 10px;
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+}
+.product-cards {
+  text-align: center;
+  color: var(--text-color);
+}
+.product-list {
+  text-decoration: none;
+}
+.product-list p {
+  color: var(--text-color);
+}

@@ -1,0 +1,79 @@
+.logoutBtn {
+  position: relative;
+  margin-top: 10px;
+}
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 0.6rem;
+}
+.logBtn {
+  background: var(--primary-color);
+  gap: 0 0.5rem;
+}
+.logBtn {
+  background: rgb(250, 105, 134);
+  height: 35px;
+}
+.space {
+  margin-inline: 10px;
+}
+.logBtn:hover,
+.dropdown-btn:hover {
+  background: rgb(250, 105, 134);
+}
+.logBtn:hover {
+  background: crimson;
+}
+.img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.dropdown {
+  position: absolute;
+  top: 35px;
+  left: 0px;
+  width: 100%;
+  box-shadow: none;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 5px;
+  background: var(--primary-color);
+  border-radius: 10px;
+  background: rgb(219, 218, 218);
+}
+.show-dropdown {
+  visibility: visible;
+}
+.dropdown-btn {
+  border-radius: 5px;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 0.5rem;
+  background: transparent;
+  border-color: transparent;
+  letter-spacing: 5px;
+  text-transform: capitalize;
+  color: var(--text-color);
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.LogList {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+.LogList ul li {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 3px;
+  text-transform: capitalize;
+  font-size: 18px;
+  margin-left: -20px;
+  color: var(--text-color);
+}

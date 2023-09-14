@@ -1,0 +1,22 @@
+.BigSidebar {
+  height: 100vh;
+  background: var(--secondary-color);
+  background: white;
+}
+.title {
+  color: var(--text-color);
+  margin-top: 10px;
+  padding: 5px;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+hr {
+  width: 90%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 942px) {
+  .title h4 {
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+  }
+}

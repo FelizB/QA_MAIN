@@ -1,0 +1,105 @@
+@import "../styles/color.css";
+.dashboard {
+  background-color: var(--tertiary-color);
+  background-color: aliceblue;
+  height: 100vh;
+  overflow: hidden;
+}
+.dashboardPage {
+  overflow: auto;
+  margin: 5px;
+  padding: 10px;
+  height: 90vh;
+}
+.nav {
+  width: 100%;
+  background: var(--secondary-color) !important;
+  width: 100% !important;
+  overflow: auto;
+  margin: 5px;
+}
+.nav {
+  width: 100%;
+  background: white !important;
+}
+.nav-button {
+  display: none;
+}
+.row {
+  margin-top: -10px !important;
+}
+.col,
+.col-2 {
+  padding: 0 !important;
+}
+.btn {
+  color: var(--text-color);
+}
+.dashItems {
+}
+.col,
+.col-2 {
+  padding: 0 !important;
+}
+
+.dashItems {
+  width: 100%;
+  height: 80vh;
+}
+.nav-title {
+  display: none;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+.nav-title img {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+}
+.toggle-icon {
+  cursor: pointer;
+  font-size: 1.15rem;
+}
+
+.backlight {
+  color: white !important;
+}
+.dark-theme {
+  background-color: rgb(31, 29, 29);
+}
+@media screen and (max-width: 816px) {
+  .dashboard {
+    display: block;
+  }
+  .dashboardPage {
+    margin: 15px 10px 5px 15px !important;
+    overflow: auto;
+  }
+  .bigSideNone {
+    display: none;
+  }
+  .nav {
+    position: sticky;
+    top: 0;
+  }
+  .nav-button {
+    display: flex;
+  }
+  .nav-title {
+    display: flex;
+  }
+  .row,
+  .col,
+  .col-2 {
+    display: none;
+  }
+
+  .rowNice {
+    display: block;
+  }
+  .dashFull {
+    display: block;
+    width: 100%;
+  }
+}

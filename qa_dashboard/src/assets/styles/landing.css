@@ -1,0 +1,36 @@
+.logoNav {
+  display: flex;
+}
+.logoNav h2 {
+  margin-top: 18px;
+}
+.logo {
+  max-height: 70px;
+  max-width: 70px;
+}
+.container {
+  margin: 5px;
+}
+span {
+  color: crimson;
+}
+.frontPic {
+  max-height: 35vw;
+  max-width: 35vw;
+}
+.LandButtons {
+  padding: 2rem;
+  display: inline-block;
+}
+.LandButtons .btn {
+  margin: 10px;
+  width: 150px;
+  background: crimson;
+  border-color: crimson;
+}
+@media screen and (min-height: 800px) {
+  .frontPic {
+    max-height: 50vw;
+    max-width: 50vw;
+  }
+}

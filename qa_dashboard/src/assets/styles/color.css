@@ -1,0 +1,12 @@
+:root {
+  --primary-color: crimson;
+  --secondary-color: white;
+  --tertiary-color: aliceblue;
+  --text-color: #000106;
+}
+.dark-theme {
+  --primary-color: crimson;
+  --secondary-color: #000106;
+  --tertiary-color: rgba(0, 0, 0, 0.897);
+  --text-color: white;
+}
