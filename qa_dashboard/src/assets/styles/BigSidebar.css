@@ -1,7 +1,6 @@
 .BigSidebar {
   height: 100vh;
   background: var(--secondary-color);
-  background: white;
 }
 .title {
   color: var(--text-color);

@@ -11,7 +11,6 @@ const Theme = () => {
       ) : (
         <BsFillMoonFill />
       )}
-      {isDarkTheme ? <BsFillSunFill className="" /> : <BsFillMoonFill />}
     </div>
   );
 };
