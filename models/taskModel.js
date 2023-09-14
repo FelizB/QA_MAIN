@@ -7,25 +7,29 @@ const TaskSchema = new mongoose.Schema(
     ProjectName: String,
     Subsidiary: {
       type: String,
-      enum: Object.values.SUBSIDIARY,
+      enum: Object.values(SUBSIDIARY),
       default: SUBSIDIARY.KENYA,
     },
     TestLead: String,
     Platforms: {
       type: String,
-      enum: Object.values.PLATFORMS,
+      enum: Object.values(PLATFORMS),
       default: PLATFORMS.FINACLE,
     },
     Status: {
       type: String,
-      enum: Object.values.STATUS,
+      enum: Object.values(STATUS),
       default: STATUS.NOT_STARTED,
     },
     StartDate: { type: String, default: Date() },
     EndDate: { type: String, default: Date() },
     Progress: Number,
+    CreatedBy: {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
 );
 
-export default mongoose.model("Task", TaskSchema);
+export default mongoose.model("task", TaskSchema);

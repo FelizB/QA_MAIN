@@ -1,3 +1,4 @@
+import "express-async-errors";
 //package imports
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -5,49 +6,63 @@ import express from "express";
 const app = express();
 import morgan from "morgan";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 
 //custom imports routers
 import taskRouter from "./routes/taskRouter.js";
+import authRouter from "./routes/authRouter.js";
+import userRouter from "./routes/userRouter.js";
 
+//middleware imports.........................
+import { StatusCodes } from "http-status-codes";
+import errorHandling from "./middleware/errorhandler.js";
+import { authenticateUser } from "./middleware/authMiddleware.js";
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 app.use(express.json());
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send("Hello Felix, you are in");
+});
+
+app.get("/api/v1/test", (req, res) => {
+  res.json({ msg: "test route" });
 });
 
 app.post("/", (req, res) => {
   console.log(req);
   res.json({ message: "data received", data: req.body });
 });
+
 /*---------------------------------API CALLS----------------------------------------*/
-app.use("/api/v1/task", taskRouter);
+app.use("/api/v1/task", authenticateUser, taskRouter);
+app.use("/api/v1/users", authenticateUser, userRouter);
+app.use("/api/v1/auth", authRouter);
+
+/*---------------------------------End of API CALLS----------------------------------------*/
 
 //// response for unknown requests
 app.use("*", (req, res) => {
-  res.status(404).json({ msg: "not found" });
+  res.status(StatusCodes.NOT_FOUND).json({ msg: "not found" });
 });
 
 ////Handling errors
-
-app.use((err, req, res, next) => {
-  console.log(err);
-  res.status(500).json({ msg: "something went wrong" });
-});
-/*---------------------------------End of API CALLS----------------------------------------*/
+app.use(errorHandling);
 
 const port = process.env.PORT || 5100;
 
 try {
   await mongoose.connect(process.env.MONGO_URL);
   app.listen(port, () => {
-    console.log("Server started successfully on port", port, "..");
+    console.log(
+      "Connection established to DB, \nServer started successfully on port",
+      port,
+      ".."
+    );
   });
 } catch (error) {
-  console.log(error);
+  console.log(error.message);
   process.exit(1);
 }
-
-//

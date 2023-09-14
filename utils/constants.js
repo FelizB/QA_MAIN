@@ -32,3 +32,10 @@ export const TASK_SORT_BY = {
   ASCENDING: "a-z",
   DESCENDING: "z-a",
 };
+
+export const STATION = {
+  EQUITY_INTERNAL: "Equity Internal",
+  EQUITY_EXTERNAL: "Equity External",
+  AZENIA: "Azenia",
+};
+export const ROLE = { USER: "User", ADMIN: "Admin" };

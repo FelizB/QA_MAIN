@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -73,8 +74,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
+# This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # QA_MAIN
+
 qa_dashboard main
->>>>>>> 6c09b0f59bf3ba73e1312bab5eeb83f1a3b82e13
+
+> > > > > > > 6c09b0f59bf3ba73e1312bab5eeb83f1a3b82e13
+
+user model
+{
+"First_Name": "String",
+"Second_Name": "String",
+"Last_Name": "String",
+"Email": "String",
+"Password": "String",
+"Station": "Equity Internal"
+"role":"User"
+}

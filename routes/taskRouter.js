@@ -7,13 +7,21 @@ import {
   getSingleTask,
   deleteSingleTask,
   updateSingleTask,
+  deleteTask,
 } from "../controllers/taskController.js";
-
-router.route("/").get(getAllTasks).post(addTasks);
+import {
+  validateTaskInput,
+  validateIdParam,
+} from "../middleware/validations.js";
+router
+  .route("/")
+  .get(getAllTasks)
+  .post(validateTaskInput, addTasks)
+  .delete(deleteTask);
 router
   .route("/:id")
-  .get(getSingleTask)
-  .patch(updateSingleTask)
-  .delete(deleteSingleTask);
+  .get(validateIdParam, getSingleTask)
+  .patch(validateIdParam, updateSingleTask)
+  .delete(validateIdParam, deleteSingleTask);
 
 export default router;
