@@ -8,6 +8,7 @@ import {
   DashboardLayout,
   Error,
   Admin,
+  Stats,AllTasks,AddTask,ProductHouses
 } from "./pages/indexPages";
 
 export const checkDefaultTheme = () => {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         path: "login",
         element: <Login />,
       },
+      {
+        path: "login",
+        element: <Login />,
+      },
     ],
   },
 
@@ -45,6 +50,22 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Stats />,
+      },
+      {
+        path:'product-houses',
+        element: <ProductHouses />,
+      },
+      {
+        path:"all-tasks",
+        element: <AllTasks />,
+      },
+      {
+        path:"add-task",
+        element: <AddTask />,
+      },
+      {
+        path:"admin",
         element: <Admin />,
       },
     ],

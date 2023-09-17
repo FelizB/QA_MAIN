@@ -1,7 +1,6 @@
 @import "../styles/color.css";
 .dashboard {
-  background-color: var(--tertiary-color);
-  background-color: aliceblue;
+  background-color: var(--dashchild-color);
   height: 100vh;
   overflow: hidden;
 }

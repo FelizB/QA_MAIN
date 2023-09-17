@@ -5,6 +5,7 @@
   text-align: center;
   position: relative;
   height: 100vh;
+  background: white !important;
 }
 label {
   margin-left: 5px;

@@ -6,7 +6,7 @@ import { TextInput, PasswordInput } from "../components/FormInput";
 
 const Login = () => {
   return (
-    <div className="container registerContainer">
+    <div className="registerContainer">
       <form className="form formRegister">
         <div className="log">
           <Logo className="logoItem" />

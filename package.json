@@ -7,8 +7,9 @@
   "scripts": {
     "setup-project": "npm i && cd qa_dashboard && npm i",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "QA": "nodemon server.js",
-    "watch": "node --watch server.js"
+    "server": "nodemon server.js",
+    "client":"cd qa_dashboard && npm start",
+    "QA":"concurrently --kill-others-on-fail 'npm:server' 'npm:client'"
   },
   "keywords": [],
   "author": "",
@@ -32,4 +33,5 @@
     "nanoid": "^4.0.2",
     "nodemon": "^3.0.1"
   }
+ 
 }

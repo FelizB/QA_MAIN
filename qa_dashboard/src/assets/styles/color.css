@@ -3,10 +3,12 @@
   --secondary-color: white;
   --tertiary-color: aliceblue;
   --text-color: #000106;
+  --dashchild-color:whitesmoke;
 }
 .dark-theme {
   --primary-color: crimson;
-  --secondary-color: #000106;
+  --secondary-color: #282828;
   --tertiary-color: rgba(0, 0, 0, 0.897);
   --text-color: white;
+  --dashchild-color:#1f1f1f;
 }
