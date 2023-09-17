@@ -4,26 +4,47 @@ import "../assets/styles/register.css";
 const TextInput = (prop) => {
   return (
     <div className="formInput">
-      <label htmlFor={prop.name} className="form-label">
-        {prop.name}
+      <label htmlFor={prop.label} className="form-label">
+        {prop.label}
       </label>
       <input
         type="text"
         id={prop.name}
         name={prop.name}
+        label={prop.label}
         className="form-control"
       />
     </div>
   );
 };
-
+const PhoneInput = (prop) => {
+  return (
+    <div className="formInput">
+      <label htmlFor="Phone Number" className="form-label">
+        Phone Number
+      </label>
+      <input
+        type="tel"
+        id="Phone"
+        name={prop.name}
+        label="Phone Number"
+        className="form-control"
+      />
+    </div>
+  );
+};
 const PasswordInput = () => {
   return (
     <div className="formInput">
       <label for="Password" class="form-label">
         Password
       </label>
-      <input type="password" id="Password" class="form-control"></input>
+      <input
+        name="Password"
+        type="password"
+        id="Password"
+        class="form-control"
+      ></input>
     </div>
   );
 };
@@ -33,9 +54,9 @@ const EmailInput = () => {
       <label for="exampleFormControlInput1" class="form-label">
         Email address
       </label>
-      <input type="email" class="form-control" id="emailInput" />
+      <input name="Email" type="email" class="form-control" id="emailInput" />
     </div>
   );
 };
 
-export { TextInput, PasswordInput, EmailInput };
+export { TextInput, PasswordInput, EmailInput, PhoneInput };

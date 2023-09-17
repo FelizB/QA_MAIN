@@ -10,8 +10,8 @@ import { Theme } from "./indexComponents";
 const Navbar = () => {
   const { toggleSidebar } = useDashboardContext();
   return (
-    <nav class="navbar nav bg-body-tertiary">
-      <div class="container-fluid">
+    <nav className="navbar nav bg-body-tertiary">
+      <div className="container-fluid">
         <button
           type="button"
           className="btn nav-button"
@@ -21,7 +21,6 @@ const Navbar = () => {
         </button>
         <div className="nav-title">
           <img src={logo} className="nav-img" alt="" />
-          <img src={logo} className="nav-img" alt="" />
           <h6>
             <strong>
               QA <span>MASTER</span>
@@ -30,7 +29,7 @@ const Navbar = () => {
         </div>
         <button className="btn">TEST</button>
         <Theme />
-        <span class="navbar-brand mb-0 h1">
+        <span className="navbar-brand mb-0 h1">
           <LogOutContainer />
         </span>
       </div>

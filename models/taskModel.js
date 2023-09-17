@@ -5,11 +5,13 @@ const TaskSchema = new mongoose.Schema(
     ID: String,
     ProductHouse: String,
     ProjectName: String,
-    Subsidiary: {
-      type: String,
-      enum: Object.values(SUBSIDIARY),
-      default: SUBSIDIARY.KENYA,
-    },
+    Subsidiary: [
+      {
+        type: String,
+        enum: Object.values(SUBSIDIARY),
+        default: SUBSIDIARY.KENYA,
+      },
+    ],
     TestLead: String,
     Platforms: {
       type: String,

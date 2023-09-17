@@ -3,12 +3,14 @@
   --secondary-color: white;
   --tertiary-color: aliceblue;
   --text-color: #000106;
-  --dashchild-color:whitesmoke;
+  --dashchild-color: whitesmoke;
+  --form-background: aliceblue;
 }
 .dark-theme {
   --primary-color: crimson;
   --secondary-color: #282828;
   --tertiary-color: rgba(0, 0, 0, 0.897);
   --text-color: white;
-  --dashchild-color:#1f1f1f;
+  --dashchild-color: #1f1f1f;
+  --form-background: #282828;
 }

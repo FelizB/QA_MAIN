@@ -1,0 +1,31 @@
+.checkBoxItems {
+  padding: 10px;
+  margin-inline: 20px;
+}
+.AddTasksForm {
+  margin: 10px;
+  padding: 2rem;
+  background: var(--form-background);
+}
+Form {
+  color: var(--text-color);
+}
+.checkBoxColor:checked {
+  background-color: red;
+}
+.searchContainer {
+  margin: 5px;
+  padding: 1rem;
+  background: var(--form-background);
+}
+.taskContainer {
+  margin: 5px;
+  padding: 1rem;
+  background: var(--form-background);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2rem;
+}
+.allTaskContainer {
+  color: var(--text-color);
+}

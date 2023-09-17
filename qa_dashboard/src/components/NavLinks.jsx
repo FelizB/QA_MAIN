@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import "../assets/styles/SmallSidebar.css";
 
 const NavLinks = ({ isBigSidebar }) => {
-  const { toggleSidebar, user } = useDashboardContext();
+  const { toggleSidebar } = useDashboardContext();
   return (
     <div className="nav-links">
       {links.map((link) => {

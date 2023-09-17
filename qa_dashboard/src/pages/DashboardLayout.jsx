@@ -5,13 +5,26 @@ import {
   BigSidebar,
   Navbar,
 } from "../components/indexComponents";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLoaderData, redirect, useNavigate } from "react-router-dom";
 import { checkDefaultTheme } from "../App";
+import customFetch from "../utils/customfetch";
+import { toast } from "react-toastify";
+
+export const loader = async () => {
+  try {
+    const { data } = await customFetch.get("/users/current-user");
+    return data;
+  } catch (error) {
+    return redirect("/");
+  }
+};
 
 const DashboardContext = createContext();
 
+//create a global dashboard layout of all functionalities
 const DashboardLayout = () => {
-  const user = { name: "Felix" };
+  const { user } = useLoaderData();
+  const navigate = useNavigate();
   const [showSidebar, setShowSidebar] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme());
 
@@ -27,7 +40,14 @@ const DashboardLayout = () => {
   };
 
   const logOutUser = async () => {
-    console.log("log out");
+    try {
+      await customFetch.post("/auth/logout");
+      toast.success("logging out");
+      navigate("/");
+    } catch (error) {
+      toast.error(error?.response?.data);
+      return error;
+    }
   };
 
   return (
@@ -53,7 +73,7 @@ const DashboardLayout = () => {
             <div className="col dashFull">
               <Navbar />
               <div className="dashboardPage">
-                <Outlet className="dashItems" />
+                <Outlet className="dashItems" context={{ user }} />
               </div>
             </div>
           </div>

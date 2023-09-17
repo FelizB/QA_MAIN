@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 .nav-links {
-  padding-top: 2rem;
+  padding-top: 0.5rem;
   display: flex;
   flex-direction: column;
   margin-left: 15px;

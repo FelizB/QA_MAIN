@@ -5,3 +5,6 @@ export { default as SmallSidebar } from "./SmallSidebar";
 export { default as Navbar } from "./Navbar";
 export { default as Theme } from "./Theme";
 export { default as Products } from "./ProductCards";
+export { default as SearchContainer } from "./SearchContainer";
+export { default as TaskContainer } from "./TaskContainer";
+export { default as Task } from "./Task";

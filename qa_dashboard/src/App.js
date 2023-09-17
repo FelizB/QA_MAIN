@@ -8,8 +8,16 @@ import {
   DashboardLayout,
   Error,
   Admin,
-  Stats,AllTasks,AddTask,ProductHouses
+  Stats,
+  AllTasks,
+  AddTask,
+  ProductHouses,
 } from "./pages/indexPages";
+import { registerAction } from "./pages/Register";
+import { loginAction } from "./pages/Login";
+import { addTaskAction } from "./pages/AddTask";
+import { loader as dashboardLoader } from "./pages/DashboardLayout";
+import { loader as allTasksLoader } from "./pages/AllTasks";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
@@ -31,14 +39,12 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
-        action: () => {
-          console.log("hello there")
-          return null
-        }
+        action: registerAction,
       },
       {
         path: "login",
         element: <Login />,
+        action: loginAction,
       },
       {
         path: "login",
@@ -50,6 +56,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
+    loader: dashboardLoader,
     errorElement: <Error />,
     children: [
       {
@@ -57,19 +64,21 @@ const router = createBrowserRouter([
         element: <Stats />,
       },
       {
-        path:'product-houses',
+        path: "product-houses",
         element: <ProductHouses />,
       },
       {
-        path:"all-tasks",
+        path: "all-tasks",
         element: <AllTasks />,
+        loader: allTasksLoader,
       },
       {
-        path:"add-task",
+        path: "add-task",
         element: <AddTask />,
+        action: addTaskAction,
       },
       {
-        path:"admin",
+        path: "admin",
         element: <Admin />,
       },
     ],

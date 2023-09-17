@@ -27,10 +27,6 @@ app.get("/", (req, res) => {
   res.send("Hello Felix, you are in");
 });
 
-app.get("/api/v1/test", (req, res) => {
-  res.json({ msg: "test route" });
-});
-
 app.post("/", (req, res) => {
   console.log(req);
   res.json({ message: "data received", data: req.body });

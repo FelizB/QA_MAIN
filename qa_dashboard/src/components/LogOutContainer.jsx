@@ -3,11 +3,10 @@ import { useDashboardContext } from "../pages/DashboardLayout";
 import { useState } from "react";
 import { FaUserCircle, FaCaretDown } from "react-icons/fa";
 import "../assets/styles/logOutContainer.css";
-import { Link } from "react-router-dom";
 
 const LogOutContainer = () => {
   const [showLogout, setShowLogout] = useState(false);
-  const { user, logoutUser } = useDashboardContext();
+  const { user, logOutUser } = useDashboardContext();
   return (
     <div className="logoutBtn">
       <button
@@ -16,7 +15,7 @@ const LogOutContainer = () => {
         onClick={() => setShowLogout(!showLogout)}
       >
         <FaUserCircle className="space" />
-        {user.name}
+        {user.First_Name}
         <FaCaretDown className="space" />
       </button>
       <div className={showLogout ? "dropdown show-dropdown" : "dropdown"}>
@@ -24,31 +23,10 @@ const LogOutContainer = () => {
           <button
             type="button"
             className="dropdown-btn btn"
-            onClick={logoutUser}
+            onClick={logOutUser}
           >
             logout
           </button>
-          <ul>
-            <li>
-              <Link>Test 1</Link>
-            </li>
-            <li>
-              <Link>Test 2</Link>
-            </li>
-            <li>
-              <Link>Test 3</Link>
-            </li>
-            <br />
-            <li>
-              <button
-                type="button"
-                className="dropdown-btn btn"
-                onClick={logoutUser}
-              >
-                logout
-              </button>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
