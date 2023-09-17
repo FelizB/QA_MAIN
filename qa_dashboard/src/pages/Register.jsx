@@ -1,13 +1,16 @@
 import React from "react";
 import "../assets/styles/register.css";
-import { Link } from "react-router-dom";
+import { Link,Form,useNavigation,redirect } from "react-router-dom";
 import { Logo, SubmitButton } from "../components/indexComponents";
 import { TextInput, PasswordInput, EmailInput } from "../components/FormInput";
 
+export const registerAction = async (data) => {
+  
+}
 const Register = () => {
   return (
     <div className="container registerContainer">
-      <form className="form formRegister">
+      <Form method="post" className="form formRegister">
         <div className="log">
           <Logo className="logoItem" />
         </div>
@@ -28,7 +31,7 @@ const Register = () => {
             </span>
           </h6>
         </div>
-      </form>
+      </Form>
     </div>
   );
 };
