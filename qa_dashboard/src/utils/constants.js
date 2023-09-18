@@ -34,6 +34,7 @@ export const PLATFORMS = [
 ];
 
 export const STATUS = [
+  { label: "", value: "" },
   { label: "NOT_STARTED", value: "Not Started" },
   { label: "TEST_PLANNING", value: "Test Planning" },
   { label: "TEST_DESIGN", value: "Test Design" },
@@ -52,8 +53,14 @@ export const TASK_SORT_BY = [
 ];
 
 export const STATION = [
+  { label: "", value: "" },
   { label: "EQUITY_INTERNAL", value: "Equity Internal" },
   { label: "EQUITY_EXTERNAL", value: "Equity External" },
   { label: "AZENIA", value: "Azenia" },
 ];
-export const ROLE = { USER: "User", ADMIN: "Admin", SUPERADMIN: "Super Admin" };
+export const ROLE = [
+  { label: "", value: "" },
+  { label: "USER", value: "User" },
+  { label: "ADMIN", value: "Admin" },
+  { label: "SUPERADMIN", value: "Super Admin" },
+];

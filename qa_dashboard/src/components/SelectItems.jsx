@@ -1,5 +1,11 @@
 import React from "react";
-import { SUBSIDIARY, PLATFORMS, STATUS, STATION } from "../utils/constants.js";
+import {
+  SUBSIDIARY,
+  PLATFORMS,
+  STATUS,
+  STATION,
+  ROLE,
+} from "../utils/constants.js";
 import "../assets/styles/components.css";
 
 const AffectedPlatforms = () => {
@@ -95,6 +101,25 @@ const SelectStatus = () => {
     </div>
   );
 };
+const SelectRole = () => {
+  return (
+    <div className="formInput">
+      <label htmlFor="Role" className="form-label">
+        Select Role
+      </label>
+      <select
+        name="Role"
+        id="Role"
+        className="form-select form-control"
+        label="Select Role"
+      >
+        {ROLE.map((role) => (
+          <option value={role.value}>{role.value}</option>
+        ))}
+      </select>
+    </div>
+  );
+};
 const ShowProgress = () => {
   return (
     <div className="formInput">
@@ -103,8 +128,8 @@ const ShowProgress = () => {
       </label>
       <input
         type="number"
-        min={0}
-        max={100}
+        min="0"
+        max="100"
         id="Progress"
         className="form-control"
         name="Progress"
@@ -135,4 +160,5 @@ export {
   DatePicker,
   SelectStatus,
   ShowProgress,
+  SelectRole,
 };

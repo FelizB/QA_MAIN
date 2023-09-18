@@ -10,7 +10,7 @@ import {
 } from "../components/FormInput";
 import customFetch from "../utils/customfetch";
 import { toast } from "react-toastify";
-import { WorkStation } from "../components/SelectItems";
+import { WorkStation, SelectRole } from "../components/SelectItems";
 
 export const registerAction = async ({ request }) => {
   const formData = await request.formData();
@@ -39,7 +39,7 @@ const Register = () => {
         <TextInput name="Last_Name" label="Last Name" />
         <PhoneInput name="Phone_Number" label="Phone Number " />
         <WorkStation />
-        <TextInput name="Role" label="Role" />
+        <SelectRole />
         <EmailInput />
         <PasswordInput />
         <SubmitButton value="Submit" disabled={isSubmitting}>
