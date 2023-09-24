@@ -3,10 +3,12 @@ import { toast } from "react-toastify";
 import { TaskContainer, SearchContainer } from "../components/indexComponents";
 import customFetch from "../utils/customfetch";
 import { useLoaderData, useParams } from "react-router-dom";
-import { Form, useNavigation, redirect } from "react-router-dom";
+import { Link, Form, useNavigation, redirect } from "react-router-dom";
 import "../assets/styles/components.css";
-import { TextInput } from "../components/FormInput";
+import moment from "moment";
+import { TextInput, ViewText } from "../components/FormInput";
 import { SubmitButton } from "../components/indexComponents";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import {
   AffectedPlatforms,
   DatePicker,
@@ -45,6 +47,9 @@ const EditTask = () => {
   return (
     <div className="editTask container">
       <Form method="post" className="form">
+        <Link to={"/dashboard/all-tasks/"} className="btn back-Arrow">
+          <KeyboardArrowLeftIcon />
+        </Link>
         <h4 className="form-title">Update {task.ProjectName}</h4>
         <div className="row">
           <div className="col">
@@ -75,10 +80,18 @@ const EditTask = () => {
         <br />
         <div className="row">
           <div className="col">
-            <DatePicker name="StartDate" label="Expected Start Date" />
+            <ViewText
+              name="StartDate"
+              label="Expected Start Date"
+              value={moment(task.StartDate).format("L")}
+            />
           </div>
           <div className="col">
-            <DatePicker name="EndDate" label="Expected Completion Date" />
+            <ViewText
+              name="EndDate"
+              label="Expected Completion Date"
+              value={moment(task.StartDate).format("L")}
+            />
           </div>
           <div className="col">
             <br />

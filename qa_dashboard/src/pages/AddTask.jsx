@@ -13,20 +13,7 @@ import {
   SelectStatus,
   ShowProgress,
 } from "../components/SelectItems";
-
-const submitted = () => {
-  const form = document.getElementById("addForm");
-
-  form.addEventListener("submit", function (e) {
-    let subs = [];
-    var subsidiaries = document.getElementsByName("Subsidiary");
-    for (var i = 0; i < subsidiaries.length; i++) {
-      if (subsidiaries[i].checked === true) {
-        subs.push(subsidiaries[i].value);
-      }
-    }
-  });
-};
+import moment from "moment";
 
 export const addTaskAction = async ({ request }) => {
   let subsidiariesData = [];
@@ -38,8 +25,9 @@ export const addTaskAction = async ({ request }) => {
   }
   const formData = await request.formData();
   var data = Object.fromEntries(formData);
+  data.StartDate = moment(data.StartDate).format("L");
+  data.EndDate = moment(data.EndDate).format("L");
   data.Subsidiary = subsidiariesData;
-  console.log(data);
 
   try {
     await customFetch.post("/task", data);

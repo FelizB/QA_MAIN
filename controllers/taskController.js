@@ -63,8 +63,7 @@ export const getSingleTask = async (req, res) => {
 
 //Update / Edit single Task..........................
 export const updateSingleTask = async (req, res) => {
-  const { ProjectName, TestLead, Status, Progress, StartDate, EndDate } =
-    req.body;
+  const { ProjectName, TestLead, Status, Progress } = req.body;
 
   if (!req.body) {
     res.status(StatusCodes.BAD_REQUEST).json({

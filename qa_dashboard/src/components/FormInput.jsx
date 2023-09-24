@@ -13,7 +13,7 @@ const TextInput = (prop) => {
         name={prop.name}
         label={prop.label}
         className="form-control"
-        value={prop.value}
+        defaultValue={prop.value}
       />
     </div>
   );
@@ -45,6 +45,7 @@ const PasswordInput = () => {
         type="password"
         id="Password"
         class="form-control"
+        required
       ></input>
     </div>
   );
@@ -59,5 +60,23 @@ const EmailInput = () => {
     </div>
   );
 };
+const ViewText = (prop) => {
+  return (
+    <div className="formInput">
+      <label htmlFor={prop.label} className="form-label">
+        {prop.label}
+      </label>
+      <input
+        type="text"
+        id={prop.name}
+        name={prop.name}
+        label={prop.label}
+        className="form-control"
+        value={prop.value}
+        readOnly
+      />
+    </div>
+  );
+};
 
-export { TextInput, PasswordInput, EmailInput, PhoneInput };
+export { TextInput, PasswordInput, EmailInput, PhoneInput, ViewText };

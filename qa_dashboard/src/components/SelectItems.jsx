@@ -21,7 +21,6 @@ const AffectedPlatforms = (prop) => {
         id="Platforms"
         className="form-select form-control"
         label="Select Subsidiary"
-        value={prop.value}
       >
         {PLATFORMS.map((platform) => (
           <option value={platform.label}>{platform.value}</option>
@@ -42,7 +41,6 @@ const WorkStation = (prop) => {
         id="Station"
         className="form-select form-control"
         label="Work Station"
-        value={prop.value}
       >
         {STATION.map((station) => (
           <option value={station.label}>{station.value}</option>
@@ -70,7 +68,6 @@ const SelectSubsidiary = () => {
                 className="form-check-input checkBoxColor"
                 id="Subsidiary"
                 name="Subsidiary"
-                value={subsidiary.value}
               />
               <label
                 name={subsidiary.value}
@@ -97,7 +94,7 @@ const SelectStatus = (prop) => {
         id="Status"
         className="form-select form-control"
         label="Select Subsidiary"
-        value={prop.value}
+        defaultValue={prop.value}
       >
         {STATUS.map((status) => (
           <option value={status.value}>{status.value}</option>
@@ -117,7 +114,6 @@ const SelectRole = (prop) => {
         id="Role"
         className="form-select form-control"
         label="Select Role"
-        value={prop.value}
       >
         {ROLE.map((role) => (
           <option value={role.value}>{role.value}</option>
@@ -139,7 +135,7 @@ const ShowProgress = (prop) => {
         id="Progress"
         className="form-control"
         name="Progress"
-        value={prop.value}
+        defaultValue={prop.value}
       />
     </div>
   );
@@ -150,16 +146,19 @@ const DatePicker = (prop) => {
       <label htmlFor={prop.label} className="form-label">
         {prop.label}
       </label>
-      <ReactDatePicker
+      <input
+        type="date"
         id={prop.name}
         name={prop.name}
         label={prop.label}
         className="form-control"
-        value={prop.value}
+        aria-required="true"
+        data-placeholder={prop.value}
       />
     </div>
   );
 };
+
 export {
   SelectSubsidiary,
   AffectedPlatforms,

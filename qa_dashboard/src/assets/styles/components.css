@@ -10,6 +10,14 @@
 Form {
   color: var(--text-color);
 }
+input[type="date"]::before {
+  content: attr(data-placeholder);
+  width: 100%;
+}
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+  display: none;
+}
 .checkBoxColor:checked {
   background-color: red;
 }
@@ -154,12 +162,22 @@ header {
   align-items: center;
   background: var(--primary-color);
 }
-.edit-btn:hover,
-.delete-btn:hover {
+.delete-btn {
+  background-color: gray !important;
+}
+.edit-btn:hover {
   background: rgb(238, 52, 89);
+}
+.delete-btn:hover {
+  background: var(--primary-color) !important;
 }
 .edit-btn {
   margin-right: 0.5rem;
+}
+.back-Arrow {
+  background: gainsboro;
+
+  padding: none;
 }
 
 @media screen and (max-width: 816px) {
