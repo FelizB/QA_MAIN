@@ -15,21 +15,19 @@ import {
   ShowProgress,
 } from "../components/SelectItems";
 
-export const loader = async ({ params }) => {
+export const editTaskLoader = async ({ params }) => {
   try {
     const { data } = await customFetch.get("/task/" + params.id);
-
     return data;
   } catch (error) {
     toast.error(error?.response?.data);
     return redirect("/dashboard/all-tasks");
   }
 };
-export const action = async (request, params) => {
+export const editTaskAction = async ({ request, params }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   try {
-    console.log(params.id);
     await customFetch.patch("/task/" + params.id, data);
     toast.success("Task edited successfully");
     return redirect("/dashboard/all-tasks");
@@ -43,26 +41,35 @@ const EditTask = () => {
   const { task } = useLoaderData();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
+  console.log(task.StartDate, task.EndDate);
   return (
     <div className="editTask container">
       <Form method="post" className="form">
         <h4 className="form-title">Update {task.ProjectName}</h4>
         <div className="row">
           <div className="col">
-            <TextInput name="ProjectName" label="Project Name" />
+            <TextInput
+              name="ProjectName"
+              label="Project Name"
+              value={task.ProjectName}
+            />
           </div>
         </div>
         <br />
         <br />
         <div className="row">
           <div className="col">
-            <TextInput name="TestLead" label="Test Lead" />
+            <TextInput
+              name="TestLead"
+              label="Test Lead"
+              value={task.TestLead}
+            />
           </div>
           <div className="col">
-            <SelectStatus />
+            <SelectStatus value={task.Status} />
           </div>
           <div className="col">
-            <ShowProgress />
+            <ShowProgress value={task.Progress} />
           </div>
         </div>
         <br />

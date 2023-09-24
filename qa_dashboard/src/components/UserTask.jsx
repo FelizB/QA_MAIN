@@ -17,6 +17,24 @@ const UserTask = ({
   StartDate,
   EndDate,
 }) => {
+  let status = "";
+  if (Status === "Not Started") {
+    status = "not-started";
+  } else if (Status === "Test Planning") {
+    status = "test-planning";
+  } else if (Status === "Test Design") {
+    status = "test-design";
+  } else if (Status === "Test Execution") {
+    status = "test-execution";
+  } else if (Status === "Test Reporting") {
+    status = "test-reporting";
+  } else if (Status === "Test SignOff") {
+    status = "sign-off";
+  } else if (Status === "Pilot") {
+    status = "pilot";
+  } else if (Status === "Live") {
+    status = "live";
+  }
   return (
     <div className="userTask">
       <header>
@@ -31,7 +49,9 @@ const UserTask = ({
           <UserTaskInfo icon={<PlaceIcon />} text={Subsidiary} />
           <UserTaskInfo icon={<WorkIcon />} text={Progress} />
           <UserTaskInfo icon={<DateRangeIcon />} text={EndDate} />
-          <div className={"status" + Status}>{Status}</div>
+          <div>
+            <button className={status}>{Status}</button>
+          </div>
         </div>
         <footer className="actions">
           <Link to={"/dashboard/edit-task/" + _id} className="btn edit-btn">

@@ -111,10 +111,16 @@ header {
   display: grid;
   align-items: center;
 }
+.content-center button {
+  text-decoration: none;
+  width: 10rem;
+  border-radius: 10px;
+  border: none;
+}
 .not-started {
   background-color: blueviolet;
 }
-.test-planing {
+.test-planning {
   background-color: yellow;
 }
 .test-design {
@@ -129,10 +135,10 @@ header {
 .sign-off {
   background-color: palevioletred;
 }
-.Pilot {
+.pilot {
   background-color: yellowgreen;
 }
-.Live {
+.live {
   background-color: green;
 }
 .actions {

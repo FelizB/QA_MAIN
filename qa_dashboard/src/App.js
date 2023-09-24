@@ -19,8 +19,8 @@ import { loginAction } from "./pages/Login";
 import { addTaskAction } from "./pages/AddTask";
 import { loader as dashboardLoader } from "./pages/DashboardLayout";
 import { loader as allTasksLoader } from "./pages/AllTasks";
-import { loader as editTaskLoader } from "./pages/EditTask";
-import { loader as editTaskAction } from "./pages/EditTask";
+import { editTaskLoader } from "./pages/EditTask";
+import { editTaskAction } from "./pages/EditTask";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";

@@ -13,6 +13,7 @@ const TextInput = (prop) => {
         name={prop.name}
         label={prop.label}
         className="form-control"
+        value={prop.value}
       />
     </div>
   );
