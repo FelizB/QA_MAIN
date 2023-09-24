@@ -5,6 +5,7 @@
   --text-color: #000106;
   --dashchild-color: whitesmoke;
   --form-background: aliceblue;
+  --container-color: rgb(240, 239, 239);
 }
 .dark-theme {
   --primary-color: crimson;
@@ -13,4 +14,5 @@
   --text-color: white;
   --dashchild-color: #1f1f1f;
   --form-background: #282828;
+  --container-color: #333232;
 }

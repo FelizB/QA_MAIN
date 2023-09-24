@@ -67,13 +67,13 @@ const DashboardLayout = () => {
             <div className="smallSideFull">
               <SmallSidebar className="smallSide" />
             </div>
-            <div className="col-2 bigSideNone">
-              <BigSidebar className="bigSide" />
+            <div className="col-2 bigSideNone bigSide">
+              <BigSidebar />
             </div>
             <div className="col dashFull">
-              <Navbar />
+              <Navbar className="navComponent" />
               <div className="dashboardPage">
-                <Outlet className="dashItems" context={{ user }} />
+                <Outlet context={{ user }} />
               </div>
             </div>
           </div>

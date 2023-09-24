@@ -16,16 +16,152 @@ Form {
 .searchContainer {
   margin: 5px;
   padding: 1rem;
-  background: var(--form-background);
+  background: var(--container-color);
 }
 .taskContainer {
   margin: 5px;
   padding: 1rem;
-  background: var(--form-background);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 2rem;
+  background: var(--container-color);
 }
 .allTaskContainer {
   color: var(--text-color);
+}
+.rdt_Table {
+  background: black !important;
+}
+.numberTasks {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.tasks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+/* ----------user task Info css --------------------*/
+.userTaskInfo {
+  display: flex;
+  align-items: center;
+}
+.task-icon {
+  font-size: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+.task-text {
+  text-transform: capitalize;
+  word-break: break-word;
+  color: var(--text-color);
+}
+
+/*--------------------userTask css--------------------*/
+.userTask {
+  background: var(--form-background);
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  box-shadow: 2px;
+}
+header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid grey;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+.main-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  background: var(--primary-color);
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin-right: 2rem;
+}
+.info h5 {
+  margin-bottom: 0.5rem;
+}
+.info p {
+  margin: 0;
+  text-transform: capitalize;
+  color: var(--text-color);
+}
+.contents {
+  padding: 1rem 1.5rem;
+}
+.content-center {
+  display: grid;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.status {
+  border-radius: 10px;
+  text-transform: capitalize;
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  display: grid;
+  align-items: center;
+}
+.not-started {
+  background-color: blueviolet;
+}
+.test-planing {
+  background-color: yellow;
+}
+.test-design {
+  background-color: aquamarine;
+}
+.test-execution {
+  background-color: blue;
+}
+.test-reporting {
+  background-color: cadetblue;
+}
+.sign-off {
+  background-color: palevioletred;
+}
+.Pilot {
+  background-color: yellowgreen;
+}
+.Live {
+  background-color: green;
+}
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+.edit-btn,
+.delete-btn {
+  height: 30px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  background: var(--primary-color);
+}
+.edit-btn:hover,
+.delete-btn:hover {
+  background: rgb(238, 52, 89);
+}
+.edit-btn {
+  margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 816px) {
+  .tasks {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+  .contents {
+    grid-template-columns: 1fr;
+  }
 }

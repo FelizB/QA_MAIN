@@ -1,7 +1,9 @@
 @import "../styles/color.css";
 .dashboard {
   background-color: var(--dashchild-color);
-  height: 100vh;
+  height: 100vh !important;
+  width: 100vw !important;
+  position: relative;
   overflow: hidden;
 }
 .dashboardPage {
@@ -9,6 +11,15 @@
   margin: 5px;
   padding: 10px;
   height: 90vh;
+  position: relative;
+}
+.dashFull {
+  position: relative;
+  display: block;
+  overflow: auto;
+}
+.navComponent {
+  width: 100% !important;
 }
 .nav {
   background: var(--secondary-color) !important;
@@ -30,11 +41,6 @@
 .col,
 .col-2 {
   padding: 0 !important;
-}
-
-.dashItems {
-  width: 100%;
-  height: 80vh;
 }
 .nav-title {
   display: none;

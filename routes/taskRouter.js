@@ -20,8 +20,8 @@ router
   .delete(deleteTask);
 router
   .route("/:id")
-  .get(validateIdParam, getSingleTask)
-  .patch(validateIdParam, updateSingleTask)
-  .delete(validateIdParam, deleteSingleTask);
+  .get(getSingleTask)
+  .patch(updateSingleTask)
+  .delete(deleteSingleTask);
 
 export default router;

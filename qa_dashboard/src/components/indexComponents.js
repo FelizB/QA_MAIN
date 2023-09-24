@@ -7,4 +7,6 @@ export { default as Theme } from "./Theme";
 export { default as Products } from "./ProductCards";
 export { default as SearchContainer } from "./SearchContainer";
 export { default as TaskContainer } from "./TaskContainer";
-export { default as Task } from "./Task";
+export { default as UserTask } from "./UserTask";
+export { default as UserTaskInfo } from "./UserTaskInfo";
+export { default as UserTaskContainer } from "./UserTaskContainer";

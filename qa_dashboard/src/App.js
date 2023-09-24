@@ -12,12 +12,15 @@ import {
   AllTasks,
   AddTask,
   ProductHouses,
+  EditTask,
 } from "./pages/indexPages";
 import { registerAction } from "./pages/Register";
 import { loginAction } from "./pages/Login";
 import { addTaskAction } from "./pages/AddTask";
 import { loader as dashboardLoader } from "./pages/DashboardLayout";
 import { loader as allTasksLoader } from "./pages/AllTasks";
+import { loader as editTaskLoader } from "./pages/EditTask";
+import { loader as editTaskAction } from "./pages/EditTask";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
@@ -76,6 +79,12 @@ const router = createBrowserRouter([
         path: "add-task",
         element: <AddTask />,
         action: addTaskAction,
+      },
+      {
+        path: "edit-task/:id",
+        element: <EditTask />,
+        loader: editTaskLoader,
+        action: editTaskAction,
       },
       {
         path: "admin",
