@@ -43,7 +43,6 @@ const EditTask = () => {
   const { task } = useLoaderData();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
-  console.log(task.StartDate, task.EndDate);
   return (
     <div className="editTask container">
       <Form method="post" className="form">

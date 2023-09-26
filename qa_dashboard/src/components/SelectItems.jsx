@@ -68,6 +68,7 @@ const SelectSubsidiary = () => {
                 className="form-check-input checkBoxColor"
                 id="Subsidiary"
                 name="Subsidiary"
+                value={subsidiary.value}
               />
               <label
                 name={subsidiary.value}
@@ -136,6 +137,7 @@ const ShowProgress = (prop) => {
         className="form-control"
         name="Progress"
         defaultValue={prop.value}
+        required
       />
     </div>
   );
@@ -154,6 +156,7 @@ const DatePicker = (prop) => {
         className="form-control"
         aria-required="true"
         data-placeholder={prop.value}
+        required
       />
     </div>
   );

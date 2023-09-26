@@ -21,7 +21,9 @@ import { loader as dashboardLoader } from "./pages/DashboardLayout";
 import { loader as allTasksLoader } from "./pages/AllTasks";
 import { editTaskLoader } from "./pages/EditTask";
 import { editTaskAction } from "./pages/EditTask";
-import { deleteTaskAction } from "./pages/DeleteTask";
+import DeleteTask, { deleteTaskAction } from "./pages/DeleteTask";
+import { deleteTaskLoader } from "./pages/DeleteTask";
+import { adminLoader } from "./pages/Admin";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
@@ -89,11 +91,14 @@ const router = createBrowserRouter([
       },
       {
         path: "delete-task/:id",
+        element: <DeleteTask />,
+        loader: deleteTaskLoader,
         action: deleteTaskAction,
       },
       {
         path: "admin",
         element: <Admin />,
+        loader: adminLoader,
       },
     ],
   },

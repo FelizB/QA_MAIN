@@ -180,6 +180,50 @@ header {
   padding: none;
 }
 
+/*--------------------Admin stats component css--------------------*/
+.stats-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+}
+/*--------------------Item stats component css--------------------*/
+.stats-item {
+  padding: 2rem;
+  background: var(--form-background);
+  border-bottom: 5px solid var(--primary-color);
+}
+.item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item-count {
+  display: block;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 2;
+}
+.item-title {
+  margin: 0;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+.item-icon {
+  width: 70px;
+  height: 60px;
+  border-radius: 10px;
+  background: var(--container-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+}
+
 @media screen and (max-width: 816px) {
   .tasks {
     grid-template-columns: 1fr;
@@ -187,5 +231,13 @@ header {
   }
   .contents {
     grid-template-columns: 1fr;
+  }
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 1120px) {
+  .stats-container {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

@@ -33,6 +33,7 @@ const withValidationErrors = (validateValues) => {
 export const validateTaskInput = withValidationErrors([
   body("ProductHouse").notEmpty().withMessage("Product house is required"),
   body("ProjectName").notEmpty().withMessage("Project Name is required"),
+  body("Subsidiary").notEmpty().withMessage("select at least one subsidiary"),
   body("TestLead").notEmpty().withMessage("Test lead name is required"),
   body("Progress").notEmpty().withMessage("percentage Progress is required"),
   body("StartDate").notEmpty().withMessage("Start Date is required"),

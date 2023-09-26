@@ -15,8 +15,11 @@ export const addTasks = async (req, res) => {
     TestLead,
     Status,
     Progress,
+    StartDate,
+    EndDate,
     CreatedBy,
   } = req.body;
+  console.log(Subsidiary);
   try {
     const ID = nanoid(5).toString();
     const task = await TaskSchema.create({
@@ -28,11 +31,14 @@ export const addTasks = async (req, res) => {
       TestLead,
       Status,
       Progress,
+      StartDate,
+      EndDate,
       CreatedBy,
     });
 
     res.status(StatusCodes.CREATED).json({ task });
   } catch (error) {
+    console.log(error);
     return error;
   }
 };

@@ -14,6 +14,7 @@ const TextInput = (prop) => {
         label={prop.label}
         className="form-control"
         defaultValue={prop.value}
+        required
       />
     </div>
   );
@@ -30,6 +31,7 @@ const PhoneInput = (prop) => {
         name={prop.name}
         label="Phone Number"
         className="form-control"
+        required
       />
     </div>
   );

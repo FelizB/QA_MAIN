@@ -1,9 +1,13 @@
-import React from "react";
+import { React, useState, useContext, createContext } from "react";
 import UserTaskInfo from "./UserTaskInfo";
 import { Link, Form, useNavigation, redirect } from "react-router-dom";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import WorkIcon from "@mui/icons-material/Work";
 import PlaceIcon from "@mui/icons-material/Place";
+import { toast } from "react-toastify";
+import customFetch from "../utils/customfetch";
+import DeleteTask from "../pages/DeleteTask";
+
 const UserTask = ({
   _id,
   ID,
@@ -58,57 +62,14 @@ const UserTask = ({
           <Link to={"/dashboard/edit-task/" + _id} className="btn edit-btn">
             Update
           </Link>
-          <button
-            type="button"
-            className="btn delete-btn"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            data-bs-backdrop="false"
-          >
-            Delete
-          </button>
-          <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Modal title</h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <p>Modal body text goes here.</p>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn edit-btn"
-                    data-bs-dismiss="modal"
-                  >
-                    Back
-                  </button>
-                  <Form method="post" action={"/dashboard/delete-task/" + _id}>
-                    <button type="submit" className="btn delete-btn">
-                      Delete
-                    </button>
-                  </Form>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Form method="post" action={"/dashboard/delete-task/" + _id}>
+            <button type="submit" className="btn delete-btn">
+              Delete
+            </button>
+          </Form>
         </footer>
       </div>
     </div>
   );
 };
-
 export default UserTask;

@@ -23,6 +23,7 @@ export const addTaskAction = async ({ request }) => {
       subsidiariesData.push(subsidiaries[i].value);
     }
   }
+
   const formData = await request.formData();
   var data = Object.fromEntries(formData);
   data.StartDate = moment(data.StartDate).format("L");
