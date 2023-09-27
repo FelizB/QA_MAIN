@@ -17,9 +17,18 @@ import userRouter from "./routes/userRouter.js";
 import { StatusCodes } from "http-status-codes";
 import errorHandling from "./middleware/errorhandler.js";
 import { authenticateUser } from "./middleware/authMiddleware.js";
+
+//public path................
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
+
+//-------------------------END OF IMPORTS-----------------
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.json());
 app.use(cookieParser());
 

@@ -15,6 +15,7 @@ import { WorkStation, SelectRole } from "../components/SelectItems";
 export const registerAction = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
+
   try {
     await customFetch.post("/auth/register", data);
     toast.success("Registration Successful. Please log in");

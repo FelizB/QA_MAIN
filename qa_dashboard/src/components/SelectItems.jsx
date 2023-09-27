@@ -41,9 +41,10 @@ const WorkStation = (prop) => {
         id="Station"
         className="form-select form-control"
         label="Work Station"
+        defaultValue={prop.value}
       >
         {STATION.map((station) => (
-          <option value={station.label}>{station.value}</option>
+          <option value={station.value}>{station.value}</option>
         ))}
       </select>
     </div>
@@ -115,6 +116,7 @@ const SelectRole = (prop) => {
         id="Role"
         className="form-select form-control"
         label="Select Role"
+        defaultValue={prop.value}
       >
         {ROLE.map((role) => (
           <option value={role.value}>{role.value}</option>

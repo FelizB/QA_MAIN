@@ -14,6 +14,7 @@ export const getApplicationStats = async (req, res) => {
   res.status(StatusCodes.OK).json({ Users, Tasks });
 };
 export const updateUser = async (req, res) => {
+  console.log(req.file);
   const obj = { ...req.body };
   delete obj.Password;
   const updatedUser = await UserSchema.findByIdAndUpdate(

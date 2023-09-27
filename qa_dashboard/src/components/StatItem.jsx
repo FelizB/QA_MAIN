@@ -1,16 +1,27 @@
 import React from "react";
 import "../assets/styles/components.css";
 
-const StatItem = ({ count, title, icon, color, bcg }) => {
+const StatItemUsers = ({ count, title, icon }) => {
   return (
-    <div className="stats-item" color={color} bcg={bcg}>
+    <div className="stats-item-users">
       <header className="item-header">
-        <span className="item-count">{count}</span>
-        <span className="item-icon">{icon}</span>
+        <span className="item-count-users">{count}</span>
+        <span className="item-icon-users">{icon}</span>
+      </header>
+      <h5 className="item-title">{title}</h5>
+    </div>
+  );
+};
+const StatItemTasks = ({ count, title, icon }) => {
+  return (
+    <div className="stats-item-tasks">
+      <header className="item-header">
+        <span className="item-count-tasks">{count}</span>
+        <span className="item-icon-tasks">{icon}</span>
       </header>
       <h5 className="item-title">{title}</h5>
     </div>
   );
 };
 
-export default StatItem;
+export { StatItemUsers, StatItemTasks };

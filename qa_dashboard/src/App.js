@@ -13,6 +13,7 @@ import {
   AddTask,
   ProductHouses,
   EditTask,
+  Profile,
 } from "./pages/indexPages";
 import { registerAction } from "./pages/Register";
 import { loginAction } from "./pages/Login";
@@ -24,6 +25,7 @@ import { editTaskAction } from "./pages/EditTask";
 import DeleteTask, { deleteTaskAction } from "./pages/DeleteTask";
 import { deleteTaskLoader } from "./pages/DeleteTask";
 import { adminLoader } from "./pages/Admin";
+import { profileAction } from "./pages/Profile";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
@@ -99,6 +101,11 @@ const router = createBrowserRouter([
         path: "admin",
         element: <Admin />,
         loader: adminLoader,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+        action: profileAction,
       },
     ],
   },

@@ -187,20 +187,31 @@ header {
   grid-template-columns: 1fr 1fr;
 }
 /*--------------------Item stats component css--------------------*/
-.stats-item {
+.stats-item-users {
   padding: 2rem;
   background: var(--form-background);
-  border-bottom: 5px solid var(--primary-color);
+  border-bottom: 5px solid #e9b949;
+}
+.stats-item-tasks {
+  padding: 2rem;
+  background: var(--form-background);
+  border-bottom: 5px solid #e647ac;
 }
 .item-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.item-count {
+.item-count-users {
   display: block;
   font-weight: 700;
-  color: var(--primary-color);
+  color: #e9b949;
+  line-height: 2;
+}
+.item-count-tasks {
+  display: block;
+  font-weight: 700;
+  color: #e647ac;
   line-height: 2;
 }
 .item-title {
@@ -209,11 +220,25 @@ header {
   margin-top: 0.5rem;
   font-size: 1.25rem;
 }
-.item-icon {
+.item-icon-users {
   width: 70px;
   height: 60px;
   border-radius: 10px;
-  background: var(--container-color);
+  background: #e9b949;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+}
+.item-icon-tasks {
+  width: 70px;
+  height: 60px;
+  border-radius: 10px;
+  background: #e647ac;
   border-radius: 10px;
   display: flex;
   align-items: center;
