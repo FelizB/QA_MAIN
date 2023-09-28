@@ -16,7 +16,7 @@ import { SelectRole, WorkStation } from "../components/SelectItems";
 export const profileAction = async ({ request }) => {
   const formData = await request.formData();
   const file = formData.get("avatar");
-  console.log(formData);
+  console.log(file);
   if (file && file.size > 500000) {
     toast.error("image size too large");
     return null;

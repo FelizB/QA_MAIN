@@ -7,6 +7,7 @@ import "../assets/styles/logOutContainer.css";
 const LogOutContainer = () => {
   const [showLogout, setShowLogout] = useState(false);
   const { user, logOutUser } = useDashboardContext();
+  console.log(user);
   return (
     <div className="logoutBtn">
       <button
@@ -14,8 +15,13 @@ const LogOutContainer = () => {
         className="btn logBtn"
         onClick={() => setShowLogout(!showLogout)}
       >
-        <FaUserCircle className="space" />
+        {user.avatar ? (
+          <img src={user.avatar} alt="avatar" className="img space" />
+        ) : (
+          <FaUserCircle className="space" />
+        )}
         {user.First_Name}
+
         <FaCaretDown className="space" />
       </button>
       <div className={showLogout ? "dropdown show-dropdown" : "dropdown"}>

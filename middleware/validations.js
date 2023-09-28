@@ -105,19 +105,20 @@ export const validateUpdateUser = withValidationErrors([
     .notEmpty()
     .withMessage("Email is required")
     .isEmail()
-    .withMessage("invalid email format")
-    .custom(async (Email) => {
+    .withMessage("invalid email format"),
+  /* .custom(async (Email) => {
       const User = await UserModel.findOne({ Email });
       if (User) {
         throw new BadRequestError("email already exits");
       }
-    }),
+    })*/
   body("Phone_Number")
     .notEmpty()
     .withMessage("Phone Number is required")
     .isNumeric()
     .withMessage("Phone number must be numeric")
     .isLength({ min: 10 })
+    .isLength({ max: 12 })
     .withMessage("Numbers should not be less than 10"),
   body("Station").isIn(Object.values(STATION)).withMessage("Invalid Station"),
   body("Role").isIn(Object.values(ROLE)).withMessage("Invalid Role"),

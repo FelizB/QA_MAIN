@@ -15,6 +15,7 @@
 }
 .space {
   margin-inline: 10px;
+  margin-top: -5px;
 }
 .logBtn:hover,
 .dropdown-btn:hover {
