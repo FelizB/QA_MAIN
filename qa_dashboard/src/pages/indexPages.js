@@ -12,3 +12,4 @@ export { default as Profile } from "./Profile";
 export { default as Register } from "./Register";
 export { default as Stats } from "./Stats";
 export { default as ProductHouses } from "./ProductHouses";
+export { default as ViewProfile } from "./ViewProfile";

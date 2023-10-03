@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Link,
   Form,
   useNavigation,
   redirect,
@@ -12,11 +13,11 @@ import { useDashboardContext } from "./DashboardLayout";
 import { TextInput } from "../components/FormInput";
 import { SubmitButton } from "../components/indexComponents";
 import { SelectRole, WorkStation } from "../components/SelectItems";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 
 export const profileAction = async ({ request }) => {
   const formData = await request.formData();
   const file = formData.get("avatar");
-  console.log(file);
   if (file && file.size > 500000) {
     toast.error("image size too large");
     return null;
@@ -24,6 +25,7 @@ export const profileAction = async ({ request }) => {
   try {
     await customFetch.patch("/users/update-user", formData);
     toast.success("User Updated successfully");
+    return redirect("/dashboard/view-profile");
   } catch (error) {
     toast.error(error?.response?.data);
   }
@@ -43,7 +45,7 @@ const Profile = () => {
     Phone_Number,
   } = user;
   const navigation = useNavigation();
-  const isSubmitting = navigation.state === "submitting";
+
   return (
     <div className="profile-page">
       <Form
@@ -51,6 +53,9 @@ const Profile = () => {
         className="AddTasksForm"
         encType="multipart/form-data"
       >
+        <Link to={"/dashboard/view-profile/"} className="">
+          <KeyboardArrowLeftIcon />
+        </Link>
         <div>
           <span>
             <h4 className="profile-title">Profile</h4>
@@ -114,9 +119,7 @@ const Profile = () => {
 
           <div className="col">
             <br />
-            <SubmitButton type="submit" value="Submit" disabled={isSubmitting}>
-              {isSubmitting ? "submitting..." : "submit"}
-            </SubmitButton>
+            <SubmitButton type="submit" value="Submit"></SubmitButton>
           </div>
         </div>
       </Form>

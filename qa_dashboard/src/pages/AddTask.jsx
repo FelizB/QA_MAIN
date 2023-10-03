@@ -13,7 +13,6 @@ import {
   SelectStatus,
   ShowProgress,
 } from "../components/SelectItems";
-import moment from "moment";
 
 export const addTaskAction = async ({ request }) => {
   let subsidiariesData = [];
@@ -26,9 +25,9 @@ export const addTaskAction = async ({ request }) => {
 
   const formData = await request.formData();
   var data = Object.fromEntries(formData);
-  data.StartDate = moment(data.StartDate).format("L");
-  data.EndDate = moment(data.EndDate).format("L");
+
   data.Subsidiary = subsidiariesData;
+  console.log(data);
 
   try {
     await customFetch.post("/task", data);
@@ -44,7 +43,7 @@ export const addTaskAction = async ({ request }) => {
 const AddTask = () => {
   const { user } = useDashboardContext;
   const navigation = useNavigation();
-  const isSubmitting = navigation.state === "submitting";
+
   return (
     <div>
       <Form method="post" id="addForm" className="AddTasksForm">
@@ -90,9 +89,7 @@ const AddTask = () => {
           </div>
           <div className="col">
             <br />
-            <SubmitButton type="submit" value="Submit" disabled={isSubmitting}>
-              {isSubmitting ? "submitting..." : "submit"}
-            </SubmitButton>
+            <SubmitButton type="submit" value="Submit"></SubmitButton>
           </div>
         </div>
       </Form>

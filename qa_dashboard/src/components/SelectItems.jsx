@@ -5,6 +5,7 @@ import {
   STATUS,
   STATION,
   ROLE,
+  TASK_SORT_BY,
 } from "../utils/constants.js";
 import "../assets/styles/components.css";
 import ReactDatePicker from "react-datepicker";
@@ -105,6 +106,26 @@ const SelectStatus = (prop) => {
     </div>
   );
 };
+const SortTasks = (prop) => {
+  return (
+    <div className="formInput">
+      <label htmlFor="Sort" className="form-label">
+        Sort Tasks
+      </label>
+      <select
+        name="sort"
+        id="sort"
+        className="form-select form-control"
+        label="Sort Tasks"
+        defaultValue={prop.value}
+      >
+        {TASK_SORT_BY.map((sort) => (
+          <option value={sort.value}>{sort.value}</option>
+        ))}
+      </select>
+    </div>
+  );
+};
 const SelectRole = (prop) => {
   return (
     <div className="formInput">
@@ -172,4 +193,5 @@ export {
   SelectStatus,
   ShowProgress,
   SelectRole,
+  SortTasks,
 };

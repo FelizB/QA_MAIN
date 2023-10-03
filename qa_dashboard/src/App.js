@@ -14,6 +14,7 @@ import {
   ProductHouses,
   EditTask,
   Profile,
+  ViewProfile,
 } from "./pages/indexPages";
 import { registerAction } from "./pages/Register";
 import { loginAction } from "./pages/Login";
@@ -26,6 +27,7 @@ import DeleteTask, { deleteTaskAction } from "./pages/DeleteTask";
 import { deleteTaskLoader } from "./pages/DeleteTask";
 import { adminLoader } from "./pages/Admin";
 import { profileAction } from "./pages/Profile";
+import { statsLoader } from "./pages/Stats";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
@@ -70,6 +72,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Stats />,
+        loader: statsLoader,
       },
       {
         path: "product-houses",
@@ -106,6 +109,10 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
         action: profileAction,
+      },
+      {
+        path: "view-profile",
+        element: <ViewProfile />,
       },
     ],
   },

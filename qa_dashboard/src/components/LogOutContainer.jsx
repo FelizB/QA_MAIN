@@ -7,7 +7,6 @@ import "../assets/styles/logOutContainer.css";
 const LogOutContainer = () => {
   const [showLogout, setShowLogout] = useState(false);
   const { user, logOutUser } = useDashboardContext();
-  console.log(user);
   return (
     <div className="logoutBtn">
       <button

@@ -42,7 +42,6 @@ export const editTaskAction = async ({ request, params }) => {
 const EditTask = () => {
   const { task } = useLoaderData();
   const navigation = useNavigation();
-  const isSubmitting = navigation.state === "submitting";
   return (
     <div className="editTask container">
       <Form method="post" className="form">
@@ -94,9 +93,7 @@ const EditTask = () => {
           </div>
           <div className="col">
             <br />
-            <SubmitButton type="submit" value="Submit" disabled={isSubmitting}>
-              {isSubmitting ? "submitting..." : "submit"}
-            </SubmitButton>
+            <SubmitButton type="submit" value="Submit"></SubmitButton>
           </div>
         </div>
       </Form>

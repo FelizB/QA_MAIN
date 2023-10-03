@@ -3,6 +3,9 @@ import { nanoid } from "nanoid";
 import TaskSchema from "../models/taskModel.js";
 import { StatusCodes } from "http-status-codes";
 import { NotFoundError } from "../errors/customErrors.js";
+import mongoose from "mongoose";
+import day from "dayjs";
+import taskModel from "../models/taskModel.js";
 
 //Add Tasks functionality.........................
 export const addTasks = async (req, res) => {
@@ -45,9 +48,36 @@ export const addTasks = async (req, res) => {
 
 // Get All Tasks functionality.....................
 export const getAllTasks = async (req, res) => {
+  const { search, ProjectName, Status, ProductHouse, sort } = req.query;
+  const ObjectId = {
+    CreatedBy: req.user.userId,
+  };
+  if (search) {
+    ObjectId.$or = [
+      { ProjectName: { $regex: search, $options: "i" } },
+      { Status: { $regex: search, $options: "i" } },
+      { ProductHouse: { $regex: search, $options: "i" } },
+    ];
+  }
+  if (Status && Status !== "all") {
+    ObjectId.Status = Status;
+  }
+  if (ProjectName && ProjectName !== "all") {
+    ObjectId.ProjectName = ProjectName;
+  }
+  if (ProductHouse && ProductHouse !== "all") {
+    ObjectId.ProductHouse = ProductHouse;
+  }
+  const sortOptions = {
+    newest: "-createdAt",
+    oldest: "createdAt",
+    "a-z": "Status",
+    "z-a": "-Status",
+  };
+  const sortKey = sortOptions[sort] || sortOptions.newest;
+
   try {
-    console.log(req.user);
-    const tasks = await TaskSchema.find({ CreatedBy: req.user.userId });
+    const tasks = await TaskSchema.find(ObjectId).sort(sortKey);
     res.status(StatusCodes.OK).json({ tasks });
   } catch (error) {
     return error;
@@ -113,5 +143,69 @@ export const deleteTask = async (req, res) => {
     res.status(StatusCodes.OK).json({ msg: "task deleted successfully" });
   } catch (error) {
     return error.message;
+  }
+};
+
+//Show Starts-------------------
+export const showStats = async (req, res) => {
+  let stats = await taskModel.aggregate([
+    { $match: { CreatedBy: new mongoose.Types.ObjectId(req.user.userId) } },
+    { $group: { _id: "$Status", count: { $sum: 1 } } },
+  ]);
+  stats = stats.reduce((acc, curr) => {
+    const { _id: title, count } = curr;
+    acc[title] = count;
+    return acc;
+  }, {});
+
+  const defaultStats = {
+    Not_Started: stats["Not Started"] || 0,
+    Test_Planning: stats["Test Planning"] || 0,
+    Test_Design: stats["Test Design"] || 0,
+    Test_Execution: stats["Test Execution"] || 0,
+    Test_Reporting: stats["Test Reporting"] || 0,
+    Test_SignOff: stats["Test SignOff"] || 0,
+    Pilot: stats.Pilot || 0,
+    Live: stats.Live || 0,
+  };
+
+  let monthlyDeliverable = await taskModel.aggregate([
+    { $match: { CreatedBy: new mongoose.Types.ObjectId(req.user.userId) } },
+    {
+      $group: {
+        _id: { year: { $year: "$createdAt" }, month: { $month: "$createdAt" } },
+        count: { $sum: 1 },
+      },
+    },
+    { $sort: { "_id.year": -1, "_id.month": -1 } },
+    { $limit: 8 },
+  ]);
+
+  monthlyDeliverable = monthlyDeliverable
+    .map((item) => {
+      const {
+        _id: { year, month },
+        count,
+      } = item;
+      const date = day()
+        .month(month - 1)
+        .year(year)
+        .format("MMM YY");
+      return { date, count };
+    })
+    .reverse();
+
+  res.status(StatusCodes.OK).json({ defaultStats, monthlyDeliverable });
+};
+
+//show single user stats-------------------------
+export const showSingleUserStats = async (req, res) => {
+  try {
+    const task = await TaskSchema.find({ CreatedBy: req.user.userId });
+    if (!task) throw new NotFoundError("No task found with id", id);
+
+    res.status(StatusCodes.OK).json({ task });
+  } catch (error) {
+    return error;
   }
 };

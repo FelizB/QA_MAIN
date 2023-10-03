@@ -27,7 +27,6 @@ export const registerAction = async ({ request }) => {
 };
 const Register = () => {
   const navigation = useNavigation();
-  const isSubmitting = navigation.state === "submitting";
   return (
     <div className="container registerContainer">
       <Form method="post" className="form formRegister">
@@ -43,9 +42,7 @@ const Register = () => {
         <SelectRole />
         <EmailInput />
         <PasswordInput />
-        <SubmitButton value="Submit" disabled={isSubmitting}>
-          {isSubmitting ? "submitting..." : "submit"}
-        </SubmitButton>
+        <SubmitButton value="Sign Up"></SubmitButton>
         <div>
           <h6>
             Already a member?{" "}

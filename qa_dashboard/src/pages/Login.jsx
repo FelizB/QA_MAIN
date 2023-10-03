@@ -5,6 +5,7 @@ import {
   useNavigation,
   redirect,
   useActionData,
+  useNavigate,
 } from "react-router-dom";
 import "../assets/styles/register.css";
 import { Logo, SubmitButton } from "../components/indexComponents";
@@ -34,7 +35,7 @@ export const loginAction = async ({ request }) => {
 const Login = () => {
   const errors = useActionData();
   const navigation = useNavigation();
-  const isSubmitting = navigation.state === "submitting";
+
   return (
     <div className="registerContainer">
       <Form method="post" className="form formRegister">
@@ -45,22 +46,20 @@ const Login = () => {
         {errors?.msg && <p style={{ color: "red" }}>{errors.msg}</p>}
         <EmailInput label="Email" />
         <PasswordInput />
-        <SubmitButton value="Submit" disabled={isSubmitting}>
-          {isSubmitting ? "submitting..." : "submit"}
-        </SubmitButton>
+        <SubmitButton value="Sign In"></SubmitButton>
 
         <Link to="/dashboard" class="btn btn-primary" type="button">
           Explore page
         </Link>
 
         <div>
+          <br />
           <h6>
             Not a member?
-            <span>
-              <Link to="/register" className="link">
-                Register
-              </Link>
-            </span>
+            <Link to="/register" className="link">
+              {" "}
+              Sign Up
+            </Link>
           </h6>
         </div>
       </Form>

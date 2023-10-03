@@ -11,7 +11,7 @@ const links = [
   { text: "All Tasks", path: "all-tasks", icon: <MdQueryStats /> },
   { text: "Add Task", path: "add-task", icon: <FaWpforms /> },
   { text: "Admin", path: "admin", icon: <MdAdminPanelSettings /> },
-  { text: "Profile", path: "profile", icon: <ImProfile /> },
+  { text: "Profile", path: "view-profile", icon: <ImProfile /> },
 ];
 
 export default links;

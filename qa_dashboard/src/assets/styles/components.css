@@ -248,16 +248,50 @@ header {
     color: var(--primary-color);
   }
 }
+/*-----------------view profile css----------*/
+.view-profile {
+  margin: 5px;
+  background: var(--form-background);
+}
+.card-body hr {
+  width: 80%;
+  padding: 10px;
+  margin-right: 0;
+}
+.btn-outline-primary {
+  border-color: var(--primary-color);
+}
+.btn-outline-primary:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-color);
+}
+/*charts container-----------------------------*/
+.chartsContainer {
+  text-align: center;
+  color: var(--text-color);
+  margin-top: 4rem;
+  background: var(--form-background);
+}
+.stats-container2 {
+  display: grid;
+  gap: 2rem;
+  color: var(--text-color);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
 @media screen and (max-width: 816px) {
   .tasks {
     grid-template-columns: 1fr;
-    row-gap: 2rem;
+    gap: 2rem;
   }
   .contents {
     grid-template-columns: 1fr;
   }
   .stats-container {
+    grid-template-columns: 1fr;
+  }
+  .stats-container2 {
     grid-template-columns: 1fr;
   }
 }

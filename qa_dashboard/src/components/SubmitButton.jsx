@@ -2,7 +2,7 @@ import React from "react";
 import "../assets/styles/register.css";
 import { useNavigation } from "react-router-dom";
 
-const SubmitButton = (props) => {
+const SubmitButton = (prop) => {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   return (
@@ -10,10 +10,10 @@ const SubmitButton = (props) => {
       <button
         type="submit"
         class="btn submit-btn"
-        value={props.value}
+        value={prop.value}
         disabled={isSubmitting}
       >
-        {isSubmitting ? "submitting..." : "submit"}
+        {isSubmitting ? "submitting..." : prop.value}
       </button>
     </div>
   );

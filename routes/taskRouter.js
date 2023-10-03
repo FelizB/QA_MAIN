@@ -8,6 +8,8 @@ import {
   deleteSingleTask,
   updateSingleTask,
   deleteTask,
+  showStats,
+  showSingleUserStats,
 } from "../controllers/taskController.js";
 import {
   validateTaskInput,
@@ -18,6 +20,9 @@ router
   .get(getAllTasks)
   .post(validateTaskInput, addTasks)
   .delete(deleteTask);
+
+router.route("/stats").get(showStats);
+router.route("/stats/:id").get(showSingleUserStats);
 router
   .route("/:id")
   .get(getSingleTask)
