@@ -2,6 +2,7 @@ import React from "react";
 import { ChartsContainer, StatsContainer } from "../components/indexComponents";
 import { useLoaderData } from "react-router-dom";
 import customFetch from "../utils/customfetch";
+import PieChartComponent from "../components/PieChartComponent";
 
 export const statsLoader = async () => {
   try {

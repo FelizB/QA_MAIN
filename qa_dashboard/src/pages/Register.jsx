@@ -29,29 +29,48 @@ const Register = () => {
   const navigation = useNavigation();
   return (
     <div className="container registerContainer">
-      <Form method="post" className="form formRegister">
-        <div className="log">
-          <Logo className="logoItem" />
-        </div>
-        <h4>Register </h4>
-        <TextInput name="First_Name" label="First Name" />
-        <TextInput name="Second_Name" label="Second Name" />
-        <TextInput name="Last_Name" label="Last Name" />
-        <PhoneInput name="Phone_Number" label="Phone Number " />
-        <WorkStation />
-        <SelectRole />
-        <EmailInput />
-        <PasswordInput />
-        <SubmitButton value="Sign Up"></SubmitButton>
+      <Form method="post" className="">
         <div>
-          <h6>
-            Already a member?{" "}
-            <span>
-              <Link to="/login" className="link">
-                Log in
-              </Link>
-            </span>
-          </h6>
+          <h4>Register </h4>
+        </div>
+        <br />
+        <div className="row">
+          <div className="col">
+            <TextInput name="First_Name" label="First Name" />
+          </div>
+          <div className="col">
+            <TextInput name="Second_Name" label="Second Name" />
+          </div>
+          <div className="col">
+            <TextInput name="Last_Name" label="Last Name" />
+          </div>
+        </div>
+        <br />
+        <br />
+        <div className="row">
+          <div className="col">
+            <EmailInput />
+          </div>
+          <div className="col">
+            <PhoneInput name="Phone_Number" label="Phone Number " />
+          </div>
+          <div className="col">
+            <WorkStation />
+          </div>
+        </div>
+        <br />
+        <br />
+        <div className="row">
+          <div className="col">
+            <SelectRole />
+          </div>
+
+          <div className="col">
+            <PasswordInput />
+          </div>
+          <div className="col">
+            <SubmitButton value="Add Member" />
+          </div>
         </div>
       </Form>
     </div>

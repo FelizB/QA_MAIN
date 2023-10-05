@@ -54,13 +54,6 @@ const Login = () => {
 
         <div>
           <br />
-          <h6>
-            Not a member?
-            <Link to="/register" className="link">
-              {" "}
-              Sign Up
-            </Link>
-          </h6>
         </div>
       </Form>
     </div>

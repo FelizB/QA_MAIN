@@ -274,10 +274,60 @@ header {
   background: var(--form-background);
 }
 .stats-container2 {
-  display: grid;
+  background: var(--form-background);
   gap: 2rem;
   color: var(--text-color);
+}
+
+/*-----------product stats container----------*/
+.p-main-container {
+  overflow-y: auto;
+  padding: 20px 20px;
+  color: rgba(255, 255, 255, 0.95);
+}
+.p-main-title {
+  display: flex;
+  justify-content: space-between;
+}
+.p-main-cards {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+  margin: 15px 0;
+}
+.p-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+.p-card:first-child {
+  background-color: #2962ff;
+}
+.p-card:nth-child(2) {
+  background-color: #ff6d00;
+}
+.p-card:nth-child(3) {
+  background-color: #2e7d32;
+}
+.p-card:nth-child(3) {
+  background-color: #8e7d32;
+}
+.p-card:nth-child(4) {
+  background-color: #2e3632;
+}
+.p-card:nth-child(5) {
+  background-color: #2e7d32;
+}
+.p-card-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+.p-card-inner > .p-card_icon {
+  font-size: 25px;
 }
 
 @media screen and (max-width: 816px) {

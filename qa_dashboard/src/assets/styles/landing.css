@@ -12,7 +12,7 @@
   margin: 5px;
 }
 span {
-  color: crimson;
+  color: crimson !important;
 }
 .frontPic {
   max-height: 35vw;

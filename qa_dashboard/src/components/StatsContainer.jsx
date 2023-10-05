@@ -5,6 +5,8 @@ import { useLoaderData, redirect } from "react-router-dom";
 import WorkIcon from "@mui/icons-material/Work";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import { StatItemTasks } from "./StatItem";
+import PieChartComponent from "./PieChartComponent";
+import ProductStats from "./ProductStats";
 
 function StatsContainer({ defaultStats }) {
   console.log(defaultStats);
@@ -61,13 +63,14 @@ function StatsContainer({ defaultStats }) {
   ];
   return (
     <div className="stats-container2">
-      {stats.map((item) => {
-        return (
-          <div>
-            <StatItemTasks key={item.title} {...item} />
-          </div>
-        );
-      })}
+      <div className="row">
+        <div className="col-md-8 ">
+          <ProductStats />
+        </div>
+        <div className="col-md-4 ">
+          <PieChartComponent />
+        </div>
+      </div>
     </div>
   );
 }

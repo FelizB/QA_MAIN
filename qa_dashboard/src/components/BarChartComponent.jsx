@@ -13,8 +13,8 @@ import {
 
 function BarChartComponent({ data }) {
   return (
-    <ResponsiveContainer width="95%" height={350}>
-      <BarChart data={data} margin={{ top: 50 }}>
+    <ResponsiveContainer width={500} height={300}>
+      <BarChart width={500} height={300} data={data} margin={{ top: 50 }}>
         <CartesianGrid strokeDasharray={"3 3"} />
         <XAxis dataKey="date" />
         <YAxis allowDecimals={false} />

@@ -1,6 +1,6 @@
 @import "../styles/color.css";
 .dashboard {
-  background-color: var(--dashchild-color);
+  background-color: var(--dashchild-color) !important;
   height: 100vh !important;
   width: 100vw !important;
   position: relative;
@@ -21,7 +21,7 @@
 .navComponent {
   width: 100% !important;
 }
-.nav {
+.navDash {
   background: var(--secondary-color) !important;
   width: 100% !important;
 }
@@ -61,6 +61,7 @@
 .backlight {
   color: white !important;
 }
+
 .dark-theme {
   background-color: rgb(31, 29, 29);
 }

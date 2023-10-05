@@ -46,19 +46,11 @@ const router = createBrowserRouter([
         index: true,
         element: <Landing />,
       },
-      {
-        path: "register",
-        element: <Register />,
-        action: registerAction,
-      },
+
       {
         path: "login",
         element: <Login />,
         action: loginAction,
-      },
-      {
-        path: "login",
-        element: <Login />,
       },
     ],
   },
@@ -113,6 +105,11 @@ const router = createBrowserRouter([
       {
         path: "view-profile",
         element: <ViewProfile />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+        action: registerAction,
       },
     ],
   },

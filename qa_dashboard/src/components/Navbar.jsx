@@ -10,7 +10,7 @@ import { Theme } from "./indexComponents";
 const Navbar = () => {
   const { toggleSidebar } = useDashboardContext();
   return (
-    <nav className="navbar nav bg-body-tertiary">
+    <nav className="navbar navDash bg-body-tertiary">
       <div className="container-fluid">
         <button
           type="button"
