@@ -9,7 +9,6 @@ import PieChartComponent from "./PieChartComponent";
 import ProductStats from "./ProductStats";
 
 function StatsContainer({ defaultStats }) {
-  console.log(defaultStats);
   const stats = [
     {
       title: "Test Planning",

@@ -14,13 +14,15 @@ function ProductStats() {
     <div className="p-main-container">
       <div className="p-main-title"></div>
       <div className=".p-main-cards">
-        <div className="p-card">
-          <div className="p-card-inner">
-            <h3>Enterprise</h3>
-            <WorkIcon className="p-card_icon" />
-          </div>
-          <h1>33</h1>
-        </div>
+        {ProductStats.map((value) => {
+          <div className="p-card">
+            <div className="p-card-inner">
+              <h3>{value.name}</h3>
+              <WorkIcon className="p-card_icon" />
+            </div>
+            <h1>{value.value}</h1>
+          </div>;
+        })}
       </div>
     </div>
   );
