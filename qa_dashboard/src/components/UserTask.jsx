@@ -45,7 +45,7 @@ const UserTask = ({
       <header>
         <div className="main-icon">{ProjectName.charAt(0)}</div>
         <div className="info">
-          <h5>{ProjectName}</h5>
+          <h6>{ProjectName}</h6>
           <p>{ProductHouse}</p>
         </div>
       </header>

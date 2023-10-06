@@ -9,7 +9,7 @@
   gap: 0 0.6rem;
 }
 .logBtn {
-  background: var(--primary-color);
+  background: none;
   gap: 0 0.5rem;
   height: 35px;
 }
@@ -18,8 +18,12 @@
   margin-top: -5px;
 }
 .logBtn:hover,
-.dropdown-btn:hover {
-  background: rgb(250, 105, 134);
+.logBtn:active,
+.logBtn::after,
+.dropdown-btn:hover,
+.dropdown-btn:active,
+.dropdown-btn::after {
+  text-decoration: none;
 }
 .img {
   width: 25px;
@@ -35,9 +39,8 @@
   text-align: center;
   visibility: hidden;
   border-radius: 5px;
-  background: var(--primary-color);
   border-radius: 10px;
-  background: rgb(219, 218, 218);
+
   z-index: 999;
 }
 .show-dropdown {

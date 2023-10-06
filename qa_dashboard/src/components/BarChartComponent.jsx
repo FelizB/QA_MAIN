@@ -13,15 +13,22 @@ import {
 
 function BarChartComponent({ data }) {
   return (
-    <ResponsiveContainer width={500} height={300}>
-      <BarChart width={500} height={300} data={data} margin={{ top: 50 }}>
-        <CartesianGrid strokeDasharray={"3 3"} />
-        <XAxis dataKey="date" />
-        <YAxis allowDecimals={false} />
-        <Tooltip />
-        <Bar dataKey="count" fill="#2cb1bc" barSize={75} />
-      </BarChart>
-    </ResponsiveContainer>
+    <div>
+      <div className="the-bar">
+        <h6>New Entries Per day</h6>
+      </div>
+      <div>
+        <ResponsiveContainer width={400} height={250}>
+          <BarChart width={400} height={250} data={data} margin={{ top: 50 }}>
+            <CartesianGrid strokeDasharray={"3 3"} />
+            <XAxis dataKey="date" />
+            <YAxis allowDecimals={false} />
+            <Tooltip />
+            <Bar dataKey="count" fill="#2cb1bc" barSize={75} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
   );
 }
 

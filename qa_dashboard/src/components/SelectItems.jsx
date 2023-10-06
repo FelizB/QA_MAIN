@@ -5,10 +5,10 @@ import {
   STATUS,
   STATION,
   ROLE,
+  PRODUCTHOUSES,
   TASK_SORT_BY,
 } from "../utils/constants.js";
 import "../assets/styles/components.css";
-import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const AffectedPlatforms = (prop) => {
@@ -25,6 +25,26 @@ const AffectedPlatforms = (prop) => {
       >
         {PLATFORMS.map((platform) => (
           <option value={platform.label}>{platform.value}</option>
+        ))}
+      </select>
+    </div>
+  );
+};
+
+const ProductHouses = (prop) => {
+  return (
+    <div className="formInput">
+      <label htmlFor="ProductHouses" className="form-label">
+        Product House
+      </label>
+      <select
+        name="ProductHouse"
+        id="ProductHouse"
+        className="form-select form-control"
+        label="Select Product House"
+      >
+        {PRODUCTHOUSES.map((house) => (
+          <option value={house.value}>{house.value}</option>
         ))}
       </select>
     </div>
@@ -194,4 +214,5 @@ export {
   ShowProgress,
   SelectRole,
   SortTasks,
+  ProductHouses,
 };

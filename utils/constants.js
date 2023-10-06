@@ -38,4 +38,15 @@ export const STATION = {
   EQUITY_EXTERNAL: "Equity External",
   AZENIA: "Azenia",
 };
+export const PRODUCTHOUSES = {
+  DIGITIZATION: "Digitization",
+  OMNICHANNEL: "Omnichannel",
+  PAYMENTS: "Payments",
+  BORROW: "Borrow",
+  INFRASTRUCTURE: "Infrastructure",
+  SAVE_INVEST: "Save-Invest",
+  FINSERVE: "Finserve",
+  COMPLIANCE: "Compliance",
+  FIN_TELCO: "Fin-Telco",
+};
 export const ROLE = { USER: "User", ADMIN: "Admin" };

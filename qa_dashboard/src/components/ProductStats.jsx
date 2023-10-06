@@ -3,25 +3,35 @@ import "../assets/styles/components.css";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import WorkIcon from "@mui/icons-material/Work";
 import PlaceIcon from "@mui/icons-material/Place";
+import { useAllTasksContext } from "../pages/AllTasks";
 
-function ProductStats() {
+function ProductStats({ data }) {
+  console.log(data);
   const ProductHouses = [
     { name: "Digitization", value: 10 },
     { name: "Omni", value: 4 },
-    { name: "USSD", value: 8 },
+    { name: "Payments", value: 8 },
+    { name: "Borrow", value: 8 },
+    { name: "Infrastructure", value: 8 },
+    { name: "Save-Invest", value: 8 },
+    { name: "Finserve", value: 8 },
+    { name: "Compliance", value: 8 },
+    { name: "Fin-Telco", value: 8 },
   ];
   return (
     <div className="p-main-container">
-      <div className="p-main-title"></div>
-      <div className=".p-main-cards">
+      <div className="p-title">
+        Progress Per <span>Product House</span>
+      </div>
+      <div className="p-main-cards">
         {ProductHouses.map((value) => {
           return (
             <div className="p-card">
               <div className="p-card-inner">
-                <h3>{value.name}</h3>
+                <h4>{value.name}</h4>
                 <WorkIcon className="p-card_icon" />
               </div>
-              <h1>{value.value}</h1>
+              <h2>{value.value}</h2>
             </div>
           );
         })}

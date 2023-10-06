@@ -19,6 +19,24 @@ const TextInput = (prop) => {
     </div>
   );
 };
+
+const TextInput2 = (prop) => {
+  return (
+    <div className="formInput">
+      <label htmlFor={prop.label} className="form-label">
+        {prop.label}
+      </label>
+      <input
+        type="text"
+        id={prop.name}
+        name={prop.name}
+        label={prop.label}
+        className="form-control"
+        defaultValue={prop.value}
+      />
+    </div>
+  );
+};
 const PhoneInput = (prop) => {
   return (
     <div className="formInput">
@@ -81,4 +99,11 @@ const ViewText = (prop) => {
   );
 };
 
-export { TextInput, PasswordInput, EmailInput, PhoneInput, ViewText };
+export {
+  TextInput,
+  TextInput2,
+  PasswordInput,
+  EmailInput,
+  PhoneInput,
+  ViewText,
+};

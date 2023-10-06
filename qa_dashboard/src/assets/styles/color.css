@@ -1,14 +1,14 @@
 :root {
-  --primary-color: crimson;
-  --secondary-color: white;
-  --tertiary-color: aliceblue;
+  --primary-color: #b51b1a;
+  --secondary-color: #ffffff;
+  --tertiary-color: #f7f7f7;
   --text-color: #000106;
   --dashchild-color: whitesmoke;
-  --form-background: aliceblue;
+  --form-background: #ffffff;
   --container-color: rgb(240, 239, 239);
 }
 .dark-theme {
-  --primary-color: crimson;
+  --primary-color: #b51b1a;
   --secondary-color: #282828;
   --tertiary-color: rgba(0, 0, 0, 0.897);
   --text-color: white;

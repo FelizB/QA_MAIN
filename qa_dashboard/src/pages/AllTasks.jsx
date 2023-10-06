@@ -5,9 +5,14 @@ import { useLoaderData } from "react-router-dom";
 import { React, useContext, createContext } from "react";
 import "../assets/styles/components.css";
 
-export const loader = async () => {
+export const loader = async ({ request }) => {
+  console.log(request.url);
+  const params = Object.fromEntries([
+    ...new URL(request.url).searchParams.entries(),
+  ]);
+  console.log(params);
   try {
-    const { data } = await customFetch.get("/task");
+    const { data } = await customFetch.get("/task", { params });
     return { data };
   } catch (error) {
     toast.error(error?.response?.data);

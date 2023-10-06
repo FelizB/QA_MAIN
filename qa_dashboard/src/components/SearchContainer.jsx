@@ -1,9 +1,8 @@
 import React from "react";
-
 import "../assets/styles/components.css";
 import { Form, Link } from "react-router-dom";
 import { useAllTasksContext } from "../pages/AllTasks";
-import { TextInput } from "./FormInput";
+import { TextInput2 } from "./FormInput";
 import { SelectStatus, SortTasks } from "./SelectItems";
 import SubmitButton from "./SubmitButton";
 
@@ -14,35 +13,21 @@ const SearchContainer = () => {
         <h5 className="form-title">Search Form</h5>
         <div className="row">
           <div className="col">
-            <TextInput name="search" label="Search" />
+            <TextInput2 name="search" label="Search" />
           </div>
           <div className="col">
-            <TextInput name="ProjectName" label="Project Name" />
+            <TextInput2 name="ProjectName" label="Project Name" />
           </div>
           <div className="col">
             <SelectStatus />
           </div>
-        </div>
-        <br />
-        <div className="row">
-          <div className="col">
-            <SortTasks />
+          <div className="col form-btn">
+            <SubmitButton type="submit" value="Search" />
           </div>
-          <div className="col">
-            <br />
-            <br />
+          <div className="col form-Link">
             <Link to={"/dashboard/all-tasks/"} className="btn edit-btn">
-              Reset Search Values
+              Reset
             </Link>
-          </div>
-          <div className="col">
-            <Form method="post" action={"/dashboard/delete-task/"}>
-              <SubmitButton
-                type="submit"
-                className="btn edit-btn"
-                value="Submit"
-              />
-            </Form>
           </div>
         </div>
       </Form>

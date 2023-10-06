@@ -25,6 +25,19 @@ export const SUBSIDIARY = [
   },
 ];
 
+export const PRODUCTHOUSES = [
+  { label: "", value: "" },
+  { label: "DIGITIZATION", value: "Digitization" },
+  { label: "OMNICHANNEL", value: "Omnichannel" },
+  { label: "PAYMENTS", value: "Payments" },
+  { label: "BORROW", value: "Borrow" },
+  { label: "INFRASTRUCTURE", value: "Infrastructure" },
+  { label: "SAVE_INVEST", value: "Save-Invest" },
+  { label: "FINSERVE", value: "Finserve" },
+  { label: "COMPLIANCE", value: "Compliance" },
+  { label: "FIN_TELCO", value: "Fin-Telco" },
+];
+
 export const PLATFORMS = [
   { label: "", value: "" },
   { label: "BSH", value: "BSH" },
@@ -46,6 +59,7 @@ export const STATUS = [
 ];
 
 export const TASK_SORT_BY = [
+  { label: "", value: "" },
   { label: "NEWEST_FIRST", value: "newest" },
   { label: "OLDEST_FIRST", value: "oldest" },
   { label: "ASCENDING", value: "a-z" },

@@ -4,27 +4,47 @@ const products = [
     Description: "deals with internal systems",
   },
   {
-    title: "Telco-Convergence",
+    title: "Telco & Fintech",
     Description:
       "deals with telcos and API intergrations to merchants or venders",
   },
   {
-    title: "Telco-Convergence",
+    title: "Omni-Channels",
     Description:
       "deals with telcos and API intergrations to merchants or venders",
   },
   {
-    title: "Telco-Convergence",
+    title: "Payments & SME Business",
     Description:
       "deals with telcos and API intergrations to merchants or venders",
   },
   {
-    title: "Telco-Convergence",
+    title: "Banking & Finance",
     Description:
       "deals with telcos and API intergrations to merchants or venders",
   },
   {
-    title: "Telco-Convergence",
+    title: "Infra & Platforms",
+    Description:
+      "deals with telcos and API intergrations to merchants or venders",
+  },
+  {
+    title: "Finserve",
+    Description:
+      "deals with telcos and API intergrations to merchants or venders",
+  },
+  {
+    title: "Country & Subsidiary",
+    Description:
+      "deals with telcos and API intergrations to merchants or venders",
+  },
+  {
+    title: "Insurance Services",
+    Description:
+      "deals with telcos and API intergrations to merchants or venders",
+  },
+  {
+    title: "Fraud,Risk & Audit Compliance ",
     Description:
       "deals with telcos and API intergrations to merchants or venders",
   },

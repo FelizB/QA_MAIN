@@ -5,10 +5,17 @@ import {
   BigSidebar,
   Navbar,
 } from "../components/indexComponents";
-import { Outlet, useLoaderData, redirect, useNavigate } from "react-router-dom";
+import {
+  Outlet,
+  useLoaderData,
+  redirect,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import { checkDefaultTheme } from "../App";
 import customFetch from "../utils/customfetch";
 import { toast } from "react-toastify";
+import BackDroper from "../components/BackDroper";
 
 export const loader = async () => {
   try {
@@ -25,6 +32,8 @@ const DashboardContext = createContext();
 const DashboardLayout = () => {
   const { user } = useLoaderData();
   const navigate = useNavigate();
+  const navigation = useNavigation();
+  const isPageLoading = navigation.state === "loading";
   const [showSidebar, setShowSidebar] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme());
 
@@ -73,7 +82,7 @@ const DashboardLayout = () => {
             <div className="col dashFull">
               <Navbar className="navComponent" />
               <div className="dashboardPage">
-                <Outlet context={{ user }} />
+                {isPageLoading ? <BackDroper /> : <Outlet context={{ user }} />}
               </div>
             </div>
           </div>

@@ -9,65 +9,20 @@ import PieChartComponent from "./PieChartComponent";
 import ProductStats from "./ProductStats";
 
 function StatsContainer({ defaultStats }) {
-  const stats = [
-    {
-      title: "Test Planning",
-      count: defaultStats?.Test_Planning || 0,
-      icon: <WorkIcon />,
-      color: "#f59e0b",
-      bcg: "#fef3c7",
-    },
-    {
-      title: "Test Design",
-      count: defaultStats?.Test_Design || 0,
-      icon: <WorkIcon />,
-      color: "#f59e0b",
-      bcg: "#fef3c7",
-    },
-    {
-      title: "Test Execution",
-      count: defaultStats?.Test_Execution || 0,
-      icon: <WorkIcon />,
-      color: "#f59e0b",
-      bcg: "#fef3c7",
-    },
-    {
-      title: "Test Reporting",
-      count: defaultStats?.Test_Reporting || 0,
-      icon: <WorkIcon />,
-      color: "#f59e0b",
-      bcg: "#fef3c7",
-    },
-    {
-      title: "Test Sign Off",
-      count: defaultStats?.Test_SignOff || 0,
-      icon: <WorkIcon />,
-      color: "#f59e0b",
-      bcg: "#fef3c7",
-    },
-    {
-      title: "Pilot",
-      count: defaultStats?.Pilot || 0,
-      icon: <WorkIcon />,
-      color: "#f59e0b",
-      bcg: "#fef3c7",
-    },
-    {
-      title: "Live",
-      count: defaultStats?.Live || 0,
-      icon: <WorkIcon />,
-      color: "#f59e0b",
-      bcg: "#fef3c7",
-    },
-  ];
+  const stats = {
+    Test_Planning: defaultStats?.Test_Planning || 0,
+    Test_Design: defaultStats?.Test_Design || 0,
+    Test_Execution: defaultStats?.Test_Execution || 0,
+    Test_Reporting: defaultStats?.Test_Reporting || 0,
+    Test_Sign_Off: defaultStats?.Test_SignOff || 0,
+    Pilot: defaultStats?.Pilot || 0,
+    Live: defaultStats?.Live || 0,
+  };
   return (
     <div className="stats-container2">
-      <div className="row">
-        <div className="col-md-8 ">
-          <ProductStats />
-        </div>
-        <div className="col-md-4 ">
-          <PieChartComponent />
+      <div className="">
+        <div className=" ">
+          <ProductStats data={stats} />
         </div>
       </div>
     </div>

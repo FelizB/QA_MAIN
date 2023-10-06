@@ -12,6 +12,7 @@ import {
   SelectSubsidiary,
   SelectStatus,
   ShowProgress,
+  ProductHouses,
 } from "../components/SelectItems";
 
 export const addTaskAction = async ({ request }) => {
@@ -45,14 +46,14 @@ const AddTask = () => {
   const navigation = useNavigation();
 
   return (
-    <div>
+    <div className="add-task-container">
       <Form method="post" id="addForm" className="AddTasksForm">
         <h5>
           <span>Create new Tasks</span>
         </h5>
         <div className="row">
           <div className="col">
-            <TextInput name="ProductHouse" label="Product House" />
+            <ProductHouses name="ProductHouse" label="Product House" />
           </div>
           <div className="col">
             <TextInput name="ProjectName" label="Project Name" />

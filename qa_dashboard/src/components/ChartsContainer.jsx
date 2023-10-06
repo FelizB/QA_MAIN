@@ -1,24 +1,48 @@
-import React, { useState } from "react";
-import { AreaChartComponent, BarChartComponent } from "./indexComponents";
+import React from "react";
 import {
-  ResponsiveContainer,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-} from "recharts";
+  AreaChartComponent,
+  BarChartComponent,
+  PieChartComponent,
+  DashAssigned,
+} from "./indexComponents";
 
-const ChartsContainer = ({ data }) => {
-  const [barChart, setBarChart] = useState(true);
+const ChartsContainer = ({ data, data2 }) => {
   return (
     <div className="chartsContainer container">
-      <div className="row">
-        <div className="col">
-          <BarChartComponent data={data} />
+      <div className="item-2">
+        <div className="dash-1">
+          <div className="areaChart-container">
+            <div className="tasks-card-container ">
+              <div className="task-text-container">
+                <h6>Total Number of Tasks</h6>
+                <div className="items">
+                  <p>
+                    Pending <span> 30</span>
+                  </p>
+                  <p>
+                    Asigned <span> 30</span>
+                  </p>
+                </div>
+              </div>
+              <div className="report-btn-container">
+                <button className="report-btn">View Report</button>
+              </div>
+            </div>
+
+            <AreaChartComponent data={data2} />
+          </div>
         </div>
-        <div className="col">
-          <AreaChartComponent data={data} />
+
+        <div className="pie-chart dash-1">
+          <PieChartComponent data={data2} />
+        </div>
+      </div>
+      <div className="item-3">
+        <div className="dash-1">
+          <DashAssigned />
+        </div>
+        <div className="dash-1">
+          <BarChartComponent data={data} />
         </div>
       </div>
     </div>
