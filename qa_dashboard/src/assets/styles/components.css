@@ -164,9 +164,9 @@ header {
   background-color: green;
 }
 .actions {
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .edit-btn,
 .delete-btn {
@@ -219,12 +219,14 @@ header {
 .item-count-users {
   display: block;
   font-weight: 700;
+  font-size: 30px;
   color: #e9b949;
   line-height: 2;
 }
 .item-count-tasks {
   display: block;
   font-weight: 700;
+  font-size: 30px;
   color: #e647ac;
   line-height: 2;
 }
@@ -233,6 +235,7 @@ header {
   text-transform: capitalize;
   margin-top: 0.5rem;
   font-size: 1.25rem;
+  color: var(--text-color);
 }
 .item-icon-users {
   width: 70px;
@@ -338,22 +341,22 @@ header {
   background-color: #2e3632;
 }
 .p-card:nth-child(5) {
-  background-color: #2e7d32;
+  background-color: #2e477d;
 }
 .p-card:nth-child(6) {
-  background-color: #2e7d32;
+  background-color: #717d2e;
 }
 .p-card:nth-child(7) {
-  background-color: #2e7d32;
+  background-color: #7d2e72;
 }
 .p-card:nth-child(8) {
-  background-color: #2e7d32;
+  background-color: #2e6d7d;
 }
 .p-card:nth-child(9) {
-  background-color: #2e7d32;
+  background-color: #2e3c7d;
 }
 .p-card:nth-child(10) {
-  background-color: #2e7d32;
+  background-color: #7d5d2e;
 }
 .p-card:nth-child(11) {
   background-color: #2e7d32;
@@ -483,8 +486,6 @@ header {
   transform: scale(1.3);
 }
 
-element.style {
-}
 .btn {
   color: var(--text-color);
 }

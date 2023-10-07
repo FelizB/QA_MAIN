@@ -195,7 +195,19 @@ export const showStats = async (req, res) => {
     })
     .reverse();
 
-  res.status(StatusCodes.OK).json({ defaultStats, monthlyDeliverable });
+  let ProductHouseCategory = await taskModel.aggregate([
+    { $unwind: "$ProductHouse" },
+    {
+      $group: {
+        _id: "$ProductHouse",
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
+  res
+    .status(StatusCodes.OK)
+    .json({ defaultStats, monthlyDeliverable, ProductHouseCategory });
 };
 
 //show single user stats-------------------------
