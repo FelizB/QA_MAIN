@@ -54,7 +54,7 @@ function ViewProfileContainer() {
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="fab fa-twitter fa-lg">PF Number</i>
-                      <p class="mb-0">12345</p>
+                      <p class="mb-0">{user.PF_Number}</p>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="fab fa-github fa-lg">Role</i>
@@ -63,15 +63,23 @@ function ViewProfileContainer() {
 
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="fab fa-twitter fa-lg">Linked In</i>
-                      <p class="mb-0">@linkedIn</p>
+                      <p class="mb-0">
+                        <a href={user.LinkedIn}>{user.LinkedIn}</a>
+                      </p>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="fab fa-instagram fa-lg">git</i>
-                      <p class="mb-0">@git</p>
+                      <p class="mb-0">
+                        <a href={user.Git}>{user.Git ? user.Git : "Null"}</a>
+                      </p>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="fab fa-facebook-f fa-lg">Azure</i>
-                      <p class="mb-0">@Azure</p>
+                      <p class="mb-0">
+                        <a href={user.Azure}>
+                          {user.Azure ? user.Azure : "Null"}
+                        </a>
+                      </p>
                     </li>
                   </ul>
                 </div>
@@ -118,7 +126,7 @@ function ViewProfileContainer() {
                       <p class="mb-0">Mobile</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">{user.Phone_Number}</p>
+                      <p class="text-muted mb-0">{user.Mobile_Number}</p>
                     </div>
                   </div>
                   <hr />

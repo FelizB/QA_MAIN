@@ -14,7 +14,7 @@ const UserTaskContainer = () => {
   data.endDate = endDate;
   data.StartDate = startDate;
   const { tasks } = data;
-  if (tasks.length === 1) {
+  if (tasks.length === 0) {
     return (
       <div className="taskContainer">
         <h6>No Tasks to display</h6>

@@ -13,3 +13,4 @@ export { default as Register } from "./Register";
 export { default as Stats } from "./Stats";
 export { default as ProductHouses } from "./ProductHouses";
 export { default as ViewProfile } from "./ViewProfile";
+export { default as adminTaskView } from "./adminTaskView";

@@ -10,6 +10,7 @@ import {
   deleteTask,
   showStats,
   showSingleUserStats,
+  getTasks,
 } from "../controllers/taskController.js";
 import {
   validateTaskInput,
@@ -20,7 +21,7 @@ router
   .get(getAllTasks)
   .post(validateTaskInput, addTasks)
   .delete(deleteTask);
-
+router.route("/UserTasks").get(getTasks);
 router.route("/stats").get(showStats);
 router.route("/stats/:id").get(showSingleUserStats);
 router

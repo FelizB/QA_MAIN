@@ -10,7 +10,7 @@ export const loader = async ({ request }) => {
     ...new URL(request.url).searchParams.entries(),
   ]);
   try {
-    const { data } = await customFetch.get("/task", { params });
+    const { data } = await customFetch.get("/task/UserTasks", { params });
     return { data };
   } catch (error) {
     toast.error(error?.response?.data);

@@ -88,6 +88,7 @@ class PieChartComponent extends PureComponent {
   render() {
     const { data } = this.props;
     const stats = [
+      { name: "Not Started", value: data.Not_Started },
       { name: "Planning", value: data.Test_Planning },
       { name: "Designing", value: data.Tes_Designing },
       { name: "Execution", value: data.Test_Execution },
