@@ -47,7 +47,7 @@ export const addTasks = async (req, res) => {
 };
 
 // Get All Tasks functionality.....................
-export const getAllTasks = async (req, res) => {
+export const getTasks = async (req, res) => {
   const { search, ProjectName, Status, ProductHouse, sort } = req.query;
   const ObjectId = {
     CreatedBy: req.user.userId,
@@ -78,6 +78,15 @@ export const getAllTasks = async (req, res) => {
 
   try {
     const tasks = await TaskSchema.find(ObjectId).sort(sortKey);
+    res.status(StatusCodes.OK).json({ tasks });
+  } catch (error) {
+    return error;
+  }
+};
+//---------------get al tasks----------------------
+export const getAllTasks = async (req, res) => {
+  try {
+    const tasks = await TaskSchema.find().sort({ $natural: -1 });
     res.status(StatusCodes.OK).json({ tasks });
   } catch (error) {
     return error;
@@ -195,7 +204,56 @@ export const showStats = async (req, res) => {
     })
     .reverse();
 
-  res.status(StatusCodes.OK).json({ defaultStats, monthlyDeliverable });
+  let ProductHouseCategory = await taskModel.aggregate([
+    { $unwind: "$ProductHouse" },
+    {
+      $group: {
+        _id: "$ProductHouse",
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
+  let ProductPerDate = await taskModel.aggregate([
+    {
+      $group: {
+        _id: {
+          $dateToString: {
+            format: "%d/%m/%Y",
+            date: "$createdAt",
+          },
+        },
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
+  let BestPerforming = await taskModel.aggregate([
+    {
+      $group: {
+        _id: "$TestLead",
+        completed: { $sum: { $cond: [{ $eq: ["$Pilot", "$Live"] }, 1, 0] } },
+        Active: {
+          $sum: {
+            $cond: [{ $eq: ["$Test_Execution", "$Test_Reporting"] }, 1, 0],
+          },
+        },
+        total: {
+          $sum: "$Status",
+        },
+      },
+    },
+    { $sort: { updatedAt: -1, TestLead: -1 } },
+    { $sort: { completed: -1 } },
+    { $limit: 3 },
+  ]);
+  res.status(StatusCodes.OK).json({
+    defaultStats,
+    monthlyDeliverable,
+    ProductHouseCategory,
+    ProductPerDate,
+    BestPerforming,
+  });
 };
 
 //show single user stats-------------------------

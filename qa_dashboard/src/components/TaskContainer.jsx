@@ -1,15 +1,16 @@
 import React from "react";
-import AdminTask from "./AdminTask";
+import AdminTaskView from "../pages/adminTaskView";
 import "../assets/styles/components.css";
 import { useDashboardContext } from "../pages/DashboardLayout";
 import UserTaskContainer from "./UserTaskContainer";
+
 const TaskContainer = () => {
   const { user } = useDashboardContext();
-  if (user.Role === "User") {
+  if (user.Role === "Admin") {
     return (
       <div className="taskContainer">
         <div className="text-center">
-          <AdminTask />
+          <AdminTaskView />
         </div>
       </div>
     );

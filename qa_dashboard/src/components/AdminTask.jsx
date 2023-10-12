@@ -1,13 +1,10 @@
 import React from "react";
-import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Link, Form } from "react-router-dom";
-import { TaskInfo, customStyles } from "./AdminTaskInfo";
-import DataTable, { createTheme } from "react-data-table-component";
+import { customStyles } from "./AdminTaskInfo";
+import DataTable from "react-data-table-component";
 import "../assets/styles/components.css";
 import day from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
-
 import { useAllTasksContext } from "../pages/AllTasks";
 
 day.extend(advancedFormat);

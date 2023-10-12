@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import customFetch from "./utils/customfetch";
 import {
   HomeLayout,
   Landing,
@@ -15,6 +16,7 @@ import {
   EditTask,
   Profile,
   ViewProfile,
+  adminTaskView,
 } from "./pages/indexPages";
 import { registerAction } from "./pages/Register";
 import { loginAction } from "./pages/Login";

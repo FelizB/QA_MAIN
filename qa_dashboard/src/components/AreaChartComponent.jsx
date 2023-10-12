@@ -21,6 +21,10 @@ const colors = [
 const AreaChartComponent = ({ data }) => {
   const stats = [
     {
+      name: "Ns",
+      total: data.Not_Started,
+    },
+    {
       name: "Planning",
       total: data.Test_Planning,
     },
@@ -29,7 +33,7 @@ const AreaChartComponent = ({ data }) => {
       total: data.Test_Design,
     },
     {
-      name: "Execution",
+      name: "Exec",
       total: data.Test_Execution,
     },
     {
@@ -37,7 +41,7 @@ const AreaChartComponent = ({ data }) => {
       total: data.Test_Reporting,
     },
     {
-      name: "Sign Off",
+      name: "SignOff",
       total: data.Test_SignOff,
     },
     {
@@ -65,8 +69,8 @@ const AreaChartComponent = ({ data }) => {
     return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
   };
   return (
-    <ResponsiveContainer width={650} height={200}>
-      <BarChart width={600} height={300} data={stats} margin={{ top: 50 }}>
+    <ResponsiveContainer width="99%" height={200}>
+      <BarChart data={stats} margin={{ top: 50 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis allowDecimals={false} />

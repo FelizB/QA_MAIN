@@ -6,7 +6,9 @@ const UserSchema = new mongoose.Schema({
   Last_Name: String,
   Email: String,
   Phone_Number: String,
+  Mobile_Number: String,
   Password: String,
+  PF_Number: String,
   Station: {
     type: String,
     enum: Object.values(STATION),
@@ -17,6 +19,9 @@ const UserSchema = new mongoose.Schema({
     enum: Object.values(ROLE),
     default: ROLE.USER,
   },
+  LinkedIn: String,
+  Git: String,
+  Azure: String,
   avatar: String,
   avatarPublicId: String,
 });

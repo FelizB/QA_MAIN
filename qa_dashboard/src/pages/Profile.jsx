@@ -9,8 +9,7 @@ import {
 import { toast } from "react-toastify";
 import customFetch from "../utils/customfetch";
 import "../assets/styles/components.css";
-import { useDashboardContext } from "./DashboardLayout";
-import { TextInput } from "../components/FormInput";
+import { TextInput, TextInput2, ViewText } from "../components/FormInput";
 import { SubmitButton } from "../components/indexComponents";
 import { SelectRole, WorkStation } from "../components/SelectItems";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
@@ -43,6 +42,11 @@ const Profile = () => {
     Station,
     Role,
     Phone_Number,
+    Mobile_Number,
+    Git,
+    LinkedIn,
+    Azure,
+    PF_Number,
   } = user;
   const navigation = useNavigation();
 
@@ -77,27 +81,23 @@ const Profile = () => {
         <br />
         <div className="row">
           <div className="col">
-            <TextInput
-              name="First_Name"
-              label="First Name"
-              value={First_Name}
-            />
+            <ViewText name="First_Name" label="First Name" value={First_Name} />
           </div>
           <div className="col">
-            <TextInput
+            <ViewText
               name="Second_Name"
               label="Second Name"
               value={Second_Name}
             />
           </div>
           <div className="col">
-            <TextInput name="Last_Name" label="Last Name" value={Last_Name} />
+            <ViewText name="Last_Name" label="Last Name" value={Last_Name} />
           </div>
         </div>
         <br />
         <div className="row">
           <div className="col">
-            <TextInput name="Email" label="Email" value={Email} />
+            <ViewText name="Email" label="Email" value={Email} />
           </div>
 
           <div className="col">
@@ -114,12 +114,19 @@ const Profile = () => {
             />
           </div>
           <div className="col">
+            <TextInput
+              name="Phone_Number"
+              label="Phone Number"
+              value={Mobile_Number}
+            />
+          </div>
+          <div className="col">
             <SelectRole value={Role} />
           </div>
 
           <div className="col">
             <br />
-            <SubmitButton type="submit" value="Submit"></SubmitButton>
+            <SubmitButton type="submit" value="Update"></SubmitButton>
           </div>
         </div>
       </Form>

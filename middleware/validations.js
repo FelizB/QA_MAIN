@@ -79,6 +79,13 @@ export const validateRegister = withValidationErrors([
     .withMessage("Phone number must be numeric")
     .isLength({ min: 10 })
     .withMessage("Numbers should not be less than 10"),
+  body("Mobile_Number")
+    .notEmpty()
+    .withMessage("Phone Number is required")
+    .isNumeric()
+    .withMessage("Phone number must be numeric")
+    .isLength({ min: 10 })
+    .withMessage("Numbers should not be less than 10"),
   body("Password")
     .notEmpty()
     .withMessage("Password is required")
@@ -86,6 +93,13 @@ export const validateRegister = withValidationErrors([
     .withMessage("password must be at least 8 characters long"),
   body("Station").isIn(Object.values(STATION)).withMessage("Invalid Station"),
   body("Role").isIn(Object.values(ROLE)).withMessage("Invalid Role"),
+  body("PF_Number").notEmpty().withMessage("PF Number is required"),
+  body("LinkedIn")
+    .notEmpty()
+    .withMessage("LinkedIn profile is required")
+    .isNumeric()
+    .isLength({ max: 5 })
+    .withMessage("pf number not correct"),
 ]);
 
 export const validateLogin = withValidationErrors([

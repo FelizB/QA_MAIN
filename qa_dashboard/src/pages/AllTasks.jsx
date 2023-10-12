@@ -10,10 +10,13 @@ export const loader = async ({ request }) => {
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
   ]);
+<<<<<<< HEAD
   const [allTasks, setAllTasks] = useState([]);
   const [userTasks, setUserTasks] = useState([]);
+=======
+>>>>>>> 2cbb334adaa4b266314d344e8675b1e1391f9f44
   try {
-    const { data } = await customFetch.get("/task", { params });
+    const { data } = await customFetch.get("/task/UserTasks", { params });
     return { data };
   } catch (error) {
     toast.error(error?.response?.data);

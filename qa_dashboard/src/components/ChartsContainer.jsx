@@ -6,7 +6,7 @@ import {
   DashAssigned,
 } from "./indexComponents";
 
-const ChartsContainer = ({ data, data2 }) => {
+const ChartsContainer = ({ data, data2, data3, data4 }) => {
   return (
     <div className="chartsContainer container">
       <div className="item-2">
@@ -39,10 +39,10 @@ const ChartsContainer = ({ data, data2 }) => {
       </div>
       <div className="item-3">
         <div className="dash-1">
-          <DashAssigned />
+          <DashAssigned data={data4} />
         </div>
         <div className="dash-1">
-          <BarChartComponent data={data} />
+          <BarChartComponent data={data3} />
         </div>
       </div>
     </div>

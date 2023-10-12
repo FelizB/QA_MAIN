@@ -1,8 +1,6 @@
 import React from "react";
 import {
   ResponsiveContainer,
-  AreaChart,
-  Area,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -18,13 +16,13 @@ function BarChartComponent({ data }) {
         <h6>New Entries Per day</h6>
       </div>
       <div>
-        <ResponsiveContainer width={400} height={250}>
+        <ResponsiveContainer width="99%" height={250}>
           <BarChart width={400} height={250} data={data} margin={{ top: 50 }}>
             <CartesianGrid strokeDasharray={"3 3"} />
-            <XAxis dataKey="date" />
+            <XAxis dataKey="_id" />
             <YAxis allowDecimals={false} />
             <Tooltip />
-            <Bar dataKey="count" fill="#2cb1bc" barSize={75} />
+            <Bar dataKey="count" fill="#2cb1bc" barSize={45} />
           </BarChart>
         </ResponsiveContainer>
       </div>
