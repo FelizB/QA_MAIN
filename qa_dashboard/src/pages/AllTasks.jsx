@@ -2,15 +2,16 @@ import { toast } from "react-toastify";
 import { TaskContainer, SearchContainer } from "../components/indexComponents";
 import customFetch from "../utils/customfetch";
 import { useLoaderData } from "react-router-dom";
-import { React, useContext, createContext } from "react";
+import { React, useContext, createContext, useEffect, useState } from "react";
 import "../assets/styles/components.css";
+import axios from "axios";
 
 export const loader = async ({ request }) => {
-  console.log(request.url);
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
   ]);
-  console.log(params);
+  const [allTasks, setAllTasks] = useState([]);
+  const [userTasks, setUserTasks] = useState([]);
   try {
     const { data } = await customFetch.get("/task", { params });
     return { data };
