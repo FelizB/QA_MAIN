@@ -3,6 +3,7 @@
   --secondary-color: #ffffff;
   --tertiary-color: #f7f7f7;
   --text-color: #000106;
+  --icon-color: #333333;
   --dashchild-color: whitesmoke;
   --form-background: #ffffff;
   --container-color: rgb(240, 239, 239);
@@ -12,6 +13,7 @@
   --secondary-color: #282828;
   --tertiary-color: rgba(0, 0, 0, 0.897);
   --text-color: white;
+  --icon-color: white;
   --dashchild-color: #1f1f1f;
   --form-background: #282828;
   --container-color: #333232;

@@ -1,11 +1,13 @@
 .registerContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   position: relative;
-  height: 100vh;
-  background: white !important;
+  padding: 1.5rem;
+  background: var(--form-background);
+}
+.register-form {
+  background: var(--container-color);
+  padding: 1.2rem;
+  border-radius: 10px;
 }
 label {
   margin-left: 5px;

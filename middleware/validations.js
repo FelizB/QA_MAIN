@@ -35,7 +35,12 @@ export const validateTaskInput = withValidationErrors([
   body("ProjectName").notEmpty().withMessage("Project Name is required"),
   body("Subsidiary").notEmpty().withMessage("select at least one subsidiary"),
   body("TestLead").notEmpty().withMessage("Test lead name is required"),
-  body("Progress").notEmpty().withMessage("percentage Progress is required"),
+  body("Progress")
+    .notEmpty()
+    .withMessage("percentage Progress is required")
+    .isNumeric()
+    .withMessage("Phone number must be numeric")
+    .isLength({ max: 100 }),
   body("StartDate").notEmpty().withMessage("Start Date is required"),
   body("EndDate").notEmpty().withMessage("End Date is required"),
   body("Platforms")
@@ -78,14 +83,18 @@ export const validateRegister = withValidationErrors([
     .isNumeric()
     .withMessage("Phone number must be numeric")
     .isLength({ min: 10 })
-    .withMessage("Numbers should not be less than 10"),
+    .withMessage("Number should not be less than 10")
+    .isLength({ max: 12 })
+    .withMessage("Number should not be more than 12"),
   body("Mobile_Number")
     .notEmpty()
     .withMessage("Phone Number is required")
     .isNumeric()
     .withMessage("Phone number must be numeric")
     .isLength({ min: 10 })
-    .withMessage("Numbers should not be less than 10"),
+    .withMessage("Numbers should not be less than 10")
+    .isLength({ max: 12 })
+    .withMessage("Number should not be more than 12"),
   body("Password")
     .notEmpty()
     .withMessage("Password is required")
@@ -93,13 +102,13 @@ export const validateRegister = withValidationErrors([
     .withMessage("password must be at least 8 characters long"),
   body("Station").isIn(Object.values(STATION)).withMessage("Invalid Station"),
   body("Role").isIn(Object.values(ROLE)).withMessage("Invalid Role"),
-  body("PF_Number").notEmpty().withMessage("PF Number is required"),
-  body("LinkedIn")
+  body("LinkedIn").notEmpty().withMessage("LinkedIn profile is required"),
+  body("PF_Number")
     .notEmpty()
-    .withMessage("LinkedIn profile is required")
+    .withMessage("PF Number is required")
     .isNumeric()
     .isLength({ max: 5 })
-    .withMessage("pf number not correct"),
+    .withMessage("PF number not correct"),
 ]);
 
 export const validateLogin = withValidationErrors([

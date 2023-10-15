@@ -14,27 +14,27 @@ export const statsLoader = async () => {
 
 const Stats = () => {
   const {
-    defaultStats,
+    userStats,
     monthlyDeliverable,
     ProductHouseCategory,
     ProductPerDate,
     BestPerforming,
+    allStats,
   } = useLoaderData();
 
   return (
-    <div>
+    <div className="dash-container">
       <div className="">
-        <div className="">
-          <ChartsContainer
-            data={monthlyDeliverable}
-            data2={defaultStats}
-            data3={ProductPerDate}
-            data4={BestPerforming}
-          />
-        </div>
-        <div className="">
-          <StatsContainer data={ProductHouseCategory} />
-        </div>
+        <ChartsContainer
+          data={monthlyDeliverable}
+          data2={userStats}
+          data3={ProductPerDate}
+          data4={BestPerforming}
+          data5={allStats}
+        />
+      </div>
+      <div className="">
+        <StatsContainer data={ProductHouseCategory} />
       </div>
     </div>
   );

@@ -18,3 +18,6 @@ export { default as ChartsContainer } from "./ChartsContainer";
 export { default as StatsContainer } from "./StatsContainer";
 export { default as PieChartComponent } from "./PieChartComponent";
 export { default as DashAssigned } from "./DashAssigned";
+export { default as AdminTab } from "./AdminTab";
+export { default as ProfileDropdown } from "./ProfileDropdown";
+export { default as AccordionComponent } from "./AccordionComponent";

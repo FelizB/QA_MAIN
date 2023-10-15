@@ -14,6 +14,7 @@ const TextInput = (prop) => {
         label={prop.label}
         className="form-control"
         defaultValue={prop.value}
+        maxLength={prop.length}
         required
       />
     </div>
@@ -32,6 +33,7 @@ const TextInput2 = (prop) => {
         name={prop.name}
         label={prop.label}
         className="form-control"
+        maxLength={prop.length}
         defaultValue={prop.value}
       />
     </div>
@@ -40,15 +42,17 @@ const TextInput2 = (prop) => {
 const PhoneInput = (prop) => {
   return (
     <div className="formInput">
-      <label htmlFor="Phone Number" className="form-label">
-        Phone Number
+      <label htmlFor={prop.label} className="form-label">
+        {prop.label}
       </label>
       <input
         type="tel"
-        id="Phone"
+        id={prop.id}
         name={prop.name}
-        label="Phone Number"
+        label={prop.label}
+        maxLength={prop.length}
         className="form-control"
+        defaultValue={prop.value}
         required
       />
     </div>
@@ -65,6 +69,8 @@ const PasswordInput = () => {
         type="password"
         id="Password"
         class="form-control"
+        maxlength="25"
+        defaultValue=""
         required
       ></input>
     </div>
@@ -76,7 +82,14 @@ const EmailInput = () => {
       <label for="exampleFormControlInput1" class="form-label">
         Email address
       </label>
-      <input name="Email" type="email" class="form-control" id="emailInput" />
+      <input
+        name="Email"
+        type="email"
+        class="form-control"
+        id="emailInput"
+        maxlength="30"
+        defaultValue=""
+      />
     </div>
   );
 };

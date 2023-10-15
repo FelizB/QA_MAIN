@@ -5,12 +5,12 @@ import { useAllTasksContext } from "../pages/AllTasks";
 import { TextInput2 } from "./FormInput";
 import { SelectStatus, SortTasks } from "./SelectItems";
 import SubmitButton from "./SubmitButton";
+import { useDashboardContext } from "../pages/DashboardLayout";
 
 const SearchContainer = () => {
   return (
     <div className="searchContainer taskContainer">
-      <Form>
-        <h5 className="form-title">Search Form</h5>
+      <Form className="search-container-form">
         <div className="row">
           <div className="col">
             <TextInput2 name="search" label="Search" />

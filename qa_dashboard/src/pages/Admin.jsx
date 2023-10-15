@@ -5,6 +5,7 @@ import { useLoaderData, redirect, Link } from "react-router-dom";
 import WorkIcon from "@mui/icons-material/Work";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import { StatItemUsers, StatItemTasks } from "../components/StatItem";
+import AdminTab from "../components/AdminTab";
 import "../assets/styles/components.css";
 
 export const adminLoader = async () => {
@@ -22,36 +23,41 @@ const Admin = () => {
   const { Users, Tasks } = useLoaderData();
 
   return (
-    <div className="stats-container">
-      <StatItemUsers
-        className="item-users"
-        title="current users"
-        count={Users}
-        icon={<WorkIcon />}
-      />
-      <StatItemTasks
-        className="item-tasks"
-        title="Total Tasks"
-        count={Tasks}
-        icon={<EventAvailableIcon />}
-      />
-      <div className="contents card text-center">
-        <div className="card-body">
-          <div className="card-title ">
-            <h5>Add New Users</h5>
-          </div>
-          <div className="card-text">
-            Manage all users from a single platform
-          </div>
-          <div className="actions">
-            <Link to={"/dashboard/register"} className="btn edit-btn">
-              Add Users
-            </Link>
-            <Link to={"/dashboard/register"} className="btn edit-btn">
-              Manage Users
-            </Link>
+    <div className="dash-container">
+      <div className="stats-container">
+        <StatItemUsers
+          className="item-users"
+          title="current users"
+          count={Users}
+          icon={<WorkIcon />}
+        />
+        <StatItemTasks
+          className="item-tasks"
+          title="Total Tasks"
+          count={Tasks}
+          icon={<EventAvailableIcon />}
+        />
+        <div className="contents card text-center">
+          <div className="card-body">
+            <div className="card-title ">
+              <h5>Add New Users</h5>
+            </div>
+            <div className="card-text">
+              Manage all users from a single platform
+            </div>
+            <div className="actions">
+              <Link to={"/dashboard/register"} className="btn edit-btn">
+                + Add
+              </Link>
+              <Link to={"/dashboard/register"} className="btn edit-btn">
+                Manage
+              </Link>
+            </div>
           </div>
         </div>
+      </div>
+      <div className="adminTab stats-container">
+        <AdminTab />
       </div>
     </div>
   );

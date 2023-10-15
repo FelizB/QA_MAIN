@@ -174,6 +174,11 @@ const ShowProgress = (prop) => {
       </label>
       <input
         type="number"
+        maxlength="2"
+        onKeyPress={(item) => {
+          console.log(item);
+          if (item.target.value.length > 2) return item.preventDefault();
+        }}
         min="0"
         max="100"
         id="Progress"

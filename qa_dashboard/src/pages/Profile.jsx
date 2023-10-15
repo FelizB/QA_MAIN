@@ -9,7 +9,12 @@ import {
 import { toast } from "react-toastify";
 import customFetch from "../utils/customfetch";
 import "../assets/styles/components.css";
-import { TextInput, TextInput2, ViewText } from "../components/FormInput";
+import {
+  TextInput,
+  TextInput2,
+  ViewText,
+  PhoneInput,
+} from "../components/FormInput";
 import { SubmitButton } from "../components/indexComponents";
 import { SelectRole, WorkStation } from "../components/SelectItems";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
@@ -62,7 +67,7 @@ const Profile = () => {
         </Link>
         <div>
           <span>
-            <h4 className="profile-title">Profile</h4>
+            <h4 className="profile-title">Update Profile</h4>
             <br />
           </span>
         </div>
@@ -107,21 +112,25 @@ const Profile = () => {
         <br />
         <div className="row">
           <div className="col">
-            <TextInput
+            <PhoneInput
+              id="phone"
               name="Phone_Number"
               label="Phone Number"
+              length="12"
               value={Phone_Number}
             />
           </div>
           <div className="col">
-            <TextInput
+            <PhoneInput
+              id="phone"
               name="Phone_Number"
               label="Phone Number"
+              length="12"
               value={Mobile_Number}
             />
           </div>
           <div className="col">
-            <SelectRole value={Role} />
+            <ViewText name="Role" label="Current Role" value={Role} />
           </div>
 
           <div className="col">

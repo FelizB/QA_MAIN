@@ -48,37 +48,35 @@ function ViewProfileContainer() {
               <div class="card mb-4 mb-lg-0">
                 <div class="card-body p-0">
                   <ul class="list-group list-group-flush rounded-3">
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <li class="card-rows list-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="">User Id</i>
                       <p class="mb-0">{user._id}</p>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <li class="card-rows list-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="fab fa-twitter fa-lg">PF Number</i>
                       <p class="mb-0">{user.PF_Number}</p>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <li class="card-rows list-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="fab fa-github fa-lg">Role</i>
                       <p class="mb-0">{user.Role}</p>
                     </li>
 
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <li class=" card-rows list-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="fab fa-twitter fa-lg">Linked In</i>
                       <p class="mb-0">
-                        <a href={user.LinkedIn}>{user.LinkedIn}</a>
+                        <p class="mb-0">{user.LinkedIn}</p>
                       </p>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <li class=" card-rowslist-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="fab fa-instagram fa-lg">git</i>
                       <p class="mb-0">
-                        <a href={user.Git}>{user.Git ? user.Git : "Null"}</a>
+                        <p class="mb-0">{user.Git ? user.Git : "Null"}</p>
                       </p>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <li class="card-rows list-group-item d-flex justify-content-between align-items-center p-3">
                       <i class="fab fa-facebook-f fa-lg">Azure</i>
                       <p class="mb-0">
-                        <a href={user.Azure}>
-                          {user.Azure ? user.Azure : "Null"}
-                        </a>
+                        <p class="mb-0">{user.Azure ? user.Azure : "Null"}</p>
                       </p>
                     </li>
                   </ul>
@@ -144,7 +142,7 @@ function ViewProfileContainer() {
                       <p class="mb-0">Employee ID</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">PF12345</p>
+                      <p class="text-muted mb-0">{user.PF_Number}</p>
                     </div>
                   </div>
                 </div>

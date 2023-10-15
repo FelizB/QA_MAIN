@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useState, EseEffect, useEffect } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { customStyles } from "./AdminTaskInfo";
 import DataTable from "react-data-table-component";
 import "../assets/styles/components.css";
 import day from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
-import { useAllTasksContext } from "../pages/AllTasks";
-
+import customFetch from "../utils/customfetch";
+import MoveToInboxIcon from "@mui/icons-material/MoveToInbox";
 day.extend(advancedFormat);
 
-const AdminTask = () => {
-  const { data } = useAllTasksContext();
+const AdminTask = ({ request }) => {
+  const [data, setRecords] = useState([]);
+  const [search, setSearch] = useState("");
+  let params;
+  if (request) {
+    const item = Object.fromEntries([
+      ...new URL(request.url).searchParams.entries(),
+    ]);
+    params = item;
+  }
+
+  useEffect(() => {
+    customFetch
+      .get("/task", { params })
+      .then((response) => setRecords(response.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  //const { data } = useAllTasksContext();
+
   const startDate = day(data.StartDate).format("MMM Do, YYYY");
   const endDate = day(data.EndDate).format("MMM Do, YYYY");
   data.endDate = endDate;
@@ -54,16 +72,38 @@ const AdminTask = () => {
       selector: (row) => row.StartDate,
     },
     {
+      name: "DELETE",
+      width: "col col-lg-1",
+      center: true,
+      cell: (row) => {
+        return (
+          <div className="ActionIconContainer">
+            <MoveToInboxIcon size="small" className="actionIcon" row={row} />
+          </div>
+        );
+      },
+      allowOverflow: true,
+      button: true,
+    },
+    {
       name: "ACTIONS",
       width: "col col-lg-1",
       center: true,
-      cell: (row) => <MoreVertIcon size="small" row={row} />,
+      cell: (row) => {
+        return (
+          <div className="ActionIconContainer1">
+            <h7 className="actionIcon1" row={row}>
+              Details
+            </h7>
+          </div>
+        );
+      },
       allowOverflow: true,
       button: true,
     },
   ];
 
-  if (tasks.length === 0) {
+  if (!tasks) {
     return (
       <div className="taskContainer">
         <h6>No Tasks to display</h6>
@@ -83,6 +123,18 @@ const AdminTask = () => {
         pointerOnHover
         highlightOnHover
         theme="solarized"
+        actions={
+          <div>
+            <btn className="export btn btn-success ">Export Pdf</btn>
+          </div>
+        }
+        subHeader
+        subHeaderComponent={
+          <div>
+            Count: <span>{tasks.length}</span>
+          </div>
+        }
+        subHeaderAlign="left"
       ></DataTable>
     </div>
   );

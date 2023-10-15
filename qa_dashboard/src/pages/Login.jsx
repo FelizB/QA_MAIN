@@ -37,7 +37,7 @@ const Login = () => {
   const navigation = useNavigation();
 
   return (
-    <div className="registerContainer">
+    <div className="container">
       <Form method="post" className="form formRegister">
         <div className="log">
           <Logo className="logoItem" />

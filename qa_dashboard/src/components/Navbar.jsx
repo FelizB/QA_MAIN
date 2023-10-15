@@ -1,11 +1,12 @@
 import React from "react";
 import "../assets/styles/dashLayout.css";
-
+import SearchIcon from "@mui/icons-material/Search";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { FaAlignLeft } from "react-icons/fa";
 import { useDashboardContext } from "../pages/DashboardLayout";
 import logo from "../assets/images/logo.jpg";
 import LogOutContainer from "./LogOutContainer";
-import { Theme } from "./indexComponents";
+import { ProfileDropdown, Theme } from "./indexComponents";
 
 const Navbar = () => {
   const { toggleSidebar } = useDashboardContext();
@@ -27,11 +28,29 @@ const Navbar = () => {
             </strong>
           </h6>
         </div>
-        <button className="btn">TEST</button>
-        <Theme />
-        <span className="navbar-brand mb-0 h1">
-          <LogOutContainer />
-        </span>
+        <form class="d-none d-md-flex input-group w-auto my-auto">
+          <input
+            autocomplete="off"
+            type="search"
+            class="form-control rounded"
+            placeholder='Search (ctrl + "/" to focus)'
+          />
+          <span class="input-group-text border-0">
+            <SearchIcon />
+          </span>
+        </form>
+        <div className="nav-items2">
+          <div className="notifications-icon">
+            <NotificationsActiveIcon />
+            <span className="notifications-label">10</span>
+          </div>
+          <div className="theme-icon">
+            <Theme />
+          </div>
+          <span className="navbar-brand mb-0 h1">
+            <ProfileDropdown />
+          </span>
+        </div>
       </div>
     </nav>
   );

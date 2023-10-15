@@ -85,8 +85,26 @@ export const getTasks = async (req, res) => {
 };
 //---------------get al tasks----------------------
 export const getAllTasks = async (req, res) => {
+  const { search, ProjectName, Status, ProductHouse, sort } = req.query;
+  const ObjectId = {};
+  if (search) {
+    ObjectId.$or = [
+      { ProjectName: { $regex: search, $options: "i" } },
+      { Status: { $regex: search, $options: "i" } },
+      { ProductHouse: { $regex: search, $options: "i" } },
+    ];
+  }
+  if (Status && Status !== "all") {
+    ObjectId.Status = Status;
+  }
+  if (ProjectName && ProjectName !== "all") {
+    ObjectId.ProjectName = ProjectName;
+  }
+  if (ProductHouse && ProductHouse !== "all") {
+    ObjectId.ProductHouse = ProductHouse;
+  }
   try {
-    const tasks = await TaskSchema.find().sort({ $natural: -1 });
+    const tasks = await TaskSchema.find(ObjectId).sort({ $natural: -1 });
     res.status(StatusCodes.OK).json({ tasks });
   } catch (error) {
     return error;
@@ -167,7 +185,7 @@ export const showStats = async (req, res) => {
     return acc;
   }, {});
 
-  const defaultStats = {
+  const userStats = {
     Not_Started: stats["Not Started"] || 0,
     Test_Planning: stats["Test Planning"] || 0,
     Test_Design: stats["Test Design"] || 0,
@@ -176,6 +194,26 @@ export const showStats = async (req, res) => {
     Test_SignOff: stats["Test SignOff"] || 0,
     Pilot: stats.Pilot || 0,
     Live: stats.Live || 0,
+  };
+
+  let AllS = await taskModel.aggregate([
+    { $group: { _id: "$Status", count: { $sum: 1 } } },
+  ]);
+  AllS = AllS.reduce((acc, curr) => {
+    const { _id: title, count } = curr;
+    acc[title] = count;
+    return acc;
+  }, {});
+
+  const allStats = {
+    Not_Started: AllS["Not Started"] || 0,
+    Test_Planning: AllS["Test Planning"] || 0,
+    Test_Design: AllS["Test Design"] || 0,
+    Test_Execution: AllS["Test Execution"] || 0,
+    Test_Reporting: AllS["Test Reporting"] || 0,
+    Test_SignOff: AllS["Test SignOff"] || 0,
+    Pilot: AllS.Pilot || 0,
+    Live: AllS.Live || 0,
   };
 
   let monthlyDeliverable = await taskModel.aggregate([
@@ -247,12 +285,14 @@ export const showStats = async (req, res) => {
     { $sort: { completed: -1 } },
     { $limit: 3 },
   ]);
+
   res.status(StatusCodes.OK).json({
-    defaultStats,
+    userStats,
     monthlyDeliverable,
     ProductHouseCategory,
     ProductPerDate,
     BestPerforming,
+    allStats,
   });
 };
 

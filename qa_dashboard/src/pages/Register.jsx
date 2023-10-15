@@ -1,9 +1,10 @@
 import React from "react";
 import "../assets/styles/register.css";
-import { Link, Form, useNavigation, redirect } from "react-router-dom";
-import { Logo, SubmitButton } from "../components/indexComponents";
+import { Form, useNavigation, redirect } from "react-router-dom";
+import { SubmitButton } from "../components/indexComponents";
 import {
   TextInput,
+  TextInput2,
   PasswordInput,
   EmailInput,
   PhoneInput,
@@ -18,8 +19,8 @@ export const registerAction = async ({ request }) => {
 
   try {
     await customFetch.post("/auth/register", data);
-    toast.success("Registration Successful. Please log in");
-    return redirect("/login");
+    toast.success("User added to pool of QA users");
+    return redirect("/dashboard/admin");
   } catch (error) {
     toast.error(error?.response?.data);
     return error;
@@ -29,9 +30,11 @@ const Register = () => {
   const navigation = useNavigation();
   return (
     <div className="container registerContainer">
-      <Form method="post" className="">
+      <Form method="post" className="register-form">
         <div>
-          <h4>Register </h4>
+          <h4>
+            Add <span>Users </span>
+          </h4>
         </div>
         <br />
         <div className="row">
@@ -44,6 +47,9 @@ const Register = () => {
           <div className="col">
             <TextInput name="Last_Name" label="Last Name" />
           </div>
+          <div className="col">
+            <TextInput name="PF_Number" label="PF Number" length="5" />
+          </div>
         </div>
         <br />
         <br />
@@ -52,10 +58,20 @@ const Register = () => {
             <EmailInput />
           </div>
           <div className="col">
-            <PhoneInput name="Phone_Number" label="Phone Number " />
+            <PhoneInput
+              id="phone"
+              name="Phone_Number"
+              label="Phone Number"
+              length="12"
+            />
           </div>
           <div className="col">
-            <WorkStation />
+            <PhoneInput
+              name="Mobile_Number"
+              label="Mobile Number"
+              length="12"
+              id="Mobile"
+            />
           </div>
         </div>
         <br />
@@ -64,12 +80,28 @@ const Register = () => {
           <div className="col">
             <SelectRole />
           </div>
-
+          <div className="col">
+            <WorkStation />
+          </div>
           <div className="col">
             <PasswordInput />
           </div>
+        </div>
+        <br />
+        <br />
+        <div className="row">
           <div className="col">
-            <SubmitButton value="Add Member" />
+            <TextInput name="LinkedIn" label="Linked In profile" />
+          </div>
+          <div className="col">
+            <TextInput name="Git" label="Github Profile" />
+          </div>
+          <div className="col">
+            <TextInput2 name="Azure" label="Azure Board" />
+          </div>
+          <div className="col">
+            <br />
+            <SubmitButton value=" + Add " />
           </div>
         </div>
       </Form>

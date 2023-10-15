@@ -52,7 +52,7 @@ const DashboardLayout = () => {
     try {
       await customFetch.post("/auth/logout");
       toast.success("logging out");
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       toast.error(error?.response?.data);
       return error;
