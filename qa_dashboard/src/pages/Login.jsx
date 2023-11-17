@@ -5,15 +5,15 @@ import {
   useNavigation,
   redirect,
   useActionData,
-  useNavigate,
 } from "react-router-dom";
 import "../assets/styles/register.css";
-import { Logo, SubmitButton } from "../components/indexComponents";
+import { Logo, LogInButton } from "../components/indexComponents";
 import { PasswordInput, EmailInput } from "../components/FormInput";
 import customFetch from "../utils/customfetch";
 import { toast } from "react-toastify";
+import BackDroper from "../components/BackDroper";
 
-export const loginAction = async ({ request }) => {
+export const LoginAction = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   const errors = { msg: "" };
@@ -23,18 +23,17 @@ export const loginAction = async ({ request }) => {
   }
   try {
     await customFetch.post("/auth/login", data);
-    toast.success("Login Successful");
+    toast.success("Welcome. We are loading your data");
     return redirect("/dashboard");
   } catch (error) {
-    toast.error(error?.response?.data);
-    console.log(error);
     return error;
   }
 };
 
 const Login = () => {
-  const errors = useActionData();
+  const data = useActionData();
   const navigation = useNavigation();
+  const isPageLoading = navigation.state === "loading";
 
   return (
     <div className="container">
@@ -43,10 +42,18 @@ const Login = () => {
           <Logo className="logoItem" />
         </div>
         <h5>Log in</h5>
-        {errors?.msg && <p style={{ color: "red" }}>{errors.msg}</p>}
+        <div className="error-handler">
+          {data && (
+            <p style={{ color: "red" }}>
+              {data?.response?.data}
+              {data?.msg}
+            </p>
+          )}
+        </div>
+
         <EmailInput label="Email" />
         <PasswordInput />
-        <SubmitButton value="Sign In"></SubmitButton>
+        <LogInButton value="Sign In" />
 
         <Link to="/dashboard" class="btn btn-primary" type="button">
           Explore page
@@ -56,6 +63,7 @@ const Login = () => {
           <br />
         </div>
       </Form>
+      {isPageLoading ? <BackDroper /> : ""}
     </div>
   );
 };

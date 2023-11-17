@@ -25,6 +25,10 @@ label {
   transform: translate(-50%, -50%);
   color: var(--text-color);
 }
+.error-handler {
+  text-align: center;
+  max-width: 30vw !important;
+}
 .formInput {
   padding: 0.3rem;
 }

@@ -170,7 +170,8 @@ input[type="date"]:valid::before {
   border-radius: 10px;
 }
 .search-container-form {
-  padding: 7px;
+  padding-inline: 2px;
+  margin-bottom: -15px;
 }
 .form-Link {
   margin-left: 20px;
@@ -227,6 +228,9 @@ input[type="date"]:valid::before {
   display: grid;
   grid-template-rows: 1fr auto;
   box-shadow: 2px;
+}
+.box-divider {
+  font-size: 0.65rem !important;
 }
 header {
   padding: 1rem 1.5rem;

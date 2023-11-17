@@ -19,7 +19,7 @@ import {
   adminTaskView,
 } from "./pages/indexPages";
 import { registerAction } from "./pages/Register";
-import { loginAction } from "./pages/Login";
+import { LoginAction } from "./pages/Login";
 import { addTaskAction } from "./pages/AddTask";
 import { loader as dashboardLoader } from "./pages/DashboardLayout";
 import { loader as allTasksLoader } from "./pages/AllTasks";
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
-        action: loginAction,
+        action: LoginAction,
       },
     ],
   },
