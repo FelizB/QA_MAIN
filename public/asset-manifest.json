@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e2d4997e.css",
+    "main.js": "/static/js/main.c0ce679a.js",
+    "static/media/background3.jpg": "/static/media/background3.d32e554d20f907b92dcd.jpg",
+    "static/media/logo.jpg": "/static/media/logo.3a6105c1525ada44129b.jpg",
+    "static/media/task.png": "/static/media/task.8872b8acb389300eb627.png",
+    "static/media/background1.jpg": "/static/media/background1.33b21e5968ed65e0b1ea.jpg",
+    "static/media/background2.jpg": "/static/media/background2.522b585d33fefb48578a.jpg",
+    "static/media/background4.jpg": "/static/media/background4.d2bc746f4f8b777df46c.jpg",
+    "static/media/errorPage.svg": "/static/media/errorPage.5cbf8af137fc62087832342c8129ab4b.svg",
+    "static/media/team_up.svg": "/static/media/team_up.7f65c56bf6424a856e07d812135ab91c.svg",
+    "static/media/frontPic.svg": "/static/media/frontPic.7e2ea87c1d9a69a0128c5f7f1caddb5a.svg",
+    "static/media/completed.svg": "/static/media/completed.50eea11c81c78810e888886d8aec0d3b.svg",
+    "static/media/analysis.svg": "/static/media/analysis.a05ef9f13225222dc92f2c8e29ad022f.svg",
+    "static/media/Huawei.svg": "/static/media/Huawei.87999159f1409781597a081ef7b20c04.svg",
+    "static/media/quote-right.svg": "/static/media/quote-right.f259fc0ff54838824eb6bf53f6f23cdf.svg",
+    "static/media/Google.svg": "/static/media/Google.3ffb64a16c9a246a633edb20b94173c3.svg",
+    "index.html": "/index.html",
+    "static/media/quote-left.svg": "/static/media/quote-left.333f1c468443e3600c9babff50d92254.svg",
+    "static/media/Microsoft.svg": "/static/media/Microsoft.183eeb64da30aee687990389f3c8bae5.svg",
+    "static/media/header-image.svg": "/static/media/header-image.06602a95027570527ab1c438ac9160cb.svg",
+    "main.e2d4997e.css.map": "/static/css/main.e2d4997e.css.map",
+    "main.c0ce679a.js.map": "/static/js/main.c0ce679a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2d4997e.css",
+    "static/js/main.c0ce679a.js"
+  ]
+}

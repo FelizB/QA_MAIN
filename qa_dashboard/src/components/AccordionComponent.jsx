@@ -14,7 +14,6 @@ function AccordionComponent({ title, childlings, icon }) {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-  console.log(title, Role);
   if (title === "Administration" && Role !== "Admin") return;
   return (
     <div>
@@ -28,12 +27,12 @@ function AccordionComponent({ title, childlings, icon }) {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography className="nav-link">
+          <Typography className="nav-link accordion-link">
             <span className="icon">{icon}</span> {title}
           </Typography>
         </AccordionSummary>
         <AccordionDetails className="bigside-accordion-body">
-          <Typography>{childlings}</Typography>
+          <Typography className="childing">{childlings}</Typography>
         </AccordionDetails>
       </Accordion>
     </div>

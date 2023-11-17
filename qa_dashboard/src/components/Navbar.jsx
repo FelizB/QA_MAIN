@@ -7,6 +7,7 @@ import { useDashboardContext } from "../pages/DashboardLayout";
 import logo from "../assets/images/logo.jpg";
 import LogOutContainer from "./LogOutContainer";
 import { ProfileDropdown, Theme } from "./indexComponents";
+import NotificationsView from "./NotificationsView";
 
 const Navbar = () => {
   const { toggleSidebar } = useDashboardContext();
@@ -40,9 +41,8 @@ const Navbar = () => {
           </span>
         </form>
         <div className="nav-items2">
-          <div className="notifications-icon">
-            <NotificationsActiveIcon />
-            <span className="notifications-label">10</span>
+          <div>
+            <NotificationsView />
           </div>
           <div className="theme-icon">
             <Theme />

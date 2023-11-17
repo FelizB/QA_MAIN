@@ -22,7 +22,7 @@ const renderActiveShape = (props) => {
   const sy = cy + (outerRadius + 10) * sin;
   const mx = cx + (outerRadius + 30) * cos;
   const my = cy + (outerRadius + 30) * sin;
-  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+  const ex = mx + (cos >= 0 ? 1 : -1) * 8;
   const ey = my;
   const textAnchor = cos >= 0 ? "start" : "end";
 
@@ -56,13 +56,13 @@ const renderActiveShape = (props) => {
       />
       <circle cx={ex} cy={ey} r={2} fill={"red"} stroke="none" />
       <text
-        x={ex + (cos >= 0 ? 1 : -1) * 12}
+        x={ex + (cos >= 0 ? 1 : -1) * 5}
         y={ey}
         textAnchor={textAnchor}
         fill="#333"
       >{`Total ${value}`}</text>
       <text
-        x={ex + (cos >= 0 ? 1 : -1) * 12}
+        x={ex + (cos >= 0 ? 1 : -1) * 5}
         y={ey}
         dy={18}
         textAnchor={textAnchor}
@@ -106,8 +106,8 @@ class PieChartComponent extends PureComponent {
             data={stats}
             cx="50%"
             cy="50%"
-            innerRadius={60}
-            outerRadius={80}
+            innerRadius={50}
+            outerRadius={70}
             fill="#b51b1a"
             dataKey="value"
             onMouseEnter={this.onPieEnter}

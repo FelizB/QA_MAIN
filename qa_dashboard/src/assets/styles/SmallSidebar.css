@@ -45,6 +45,7 @@
 }
 .nav-link {
   display: flex;
+  font-size: 1rem;
   align-items: center;
   padding: 0.5rem 0;
   text-transform: capitalize;
@@ -54,15 +55,22 @@
 .nav-link:hover {
   color: crimson;
 }
-.icon {
-  font-size: 1.5rem;
+
+.nav-links .icon {
+  font-size: 1.2rem;
   margin-right: 1rem;
   display: grid;
   place-items: center;
 }
+.accordion-link {
+  font-size: 1rem !important;
+}
+.accordion-link .icon {
+  font-size: 1.2rem !important;
+  margin-right: 1rem;
+}
 .active {
   color: crimson !important;
-  color: crimson;
 }
 
 @media screen and (max-width: 942px) {

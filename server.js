@@ -54,7 +54,9 @@ app.use("/api/v1/users", authenticateUser, userRouter);
 app.use("/api/v1/auth", authRouter);
 
 /*---------------------------------End of API CALLS----------------------------------------*/
-
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./public", "index.html"));
+});
 //// response for unknown requests
 app.use("*", (req, res) => {
   res.status(StatusCodes.NOT_FOUND).json({ msg: "not found" });

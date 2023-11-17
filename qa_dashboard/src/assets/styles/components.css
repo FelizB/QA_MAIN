@@ -22,14 +22,22 @@
   background: none !important;
   border: none !important;
   box-shadow: none !important;
-  padding: 0;
-  margin-bottom: -10px;
+  margin-bottom: -20px;
 }
 .bigside-accordion-body {
-  padding: 0;
   margin-top: -30px;
-  margin-bottom: -20px;
+  margin-bottom: -30px;
   margin-left: 10px;
+  font-size: 0.1rem !important;
+}
+.BigSidebar .md-icon {
+  font-size: 1.2rem !important;
+}
+.accordion-link {
+  font-size: 1rem !important;
+}
+.accordion-link .icon {
+  font-size: 1.2rem !important;
 }
 .sidebar-footer {
   position: absolute;
@@ -92,8 +100,8 @@
 .profile-view-btn .space {
   margin-inline: 10px;
   color: var(--text-color);
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   margin-top: -2px;
 }
 .nav-items2 .notifications-icon {
@@ -124,7 +132,7 @@
   width: 18px;
   height: 18px;
   background: var(--primary-color);
-  color: white;
+  color: white !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -680,6 +688,73 @@ header {
 .adminTab {
   margin-top: 1rem;
   padding: 2px 15px;
+}
+
+/*------------------------Notifications Menu------------------*/
+
+.notification-basic-menu {
+  width: 26vw;
+}
+.notification-basic-menu:active {
+  background: none;
+}
+.notification-main-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 94% 6%;
+  gap: 0;
+  border: none;
+  background: #faf8f8;
+}
+.not-delete {
+  padding: 0;
+  margin: 0;
+}
+.not-delete:hover {
+  background: #b0adad;
+}
+.not-delete:hover {
+  background-color: none;
+}
+.not-card .not-delete .icon {
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.not-card .not-delete .icon:hover {
+  color: var(--primary-color);
+}
+.not-card {
+  width: 100%;
+}
+.notification-card {
+  display: flex;
+  width: 100%;
+  min-height: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.notification-card-body {
+  white-space: wrap;
+  display: flex;
+}
+.notification-card-body p {
+  padding: 2px;
+  font-size: 12px;
+}
+.notification-card-text {
+  color: var();
+}
+.not-card .card {
+  padding: none !important;
+  margin: none !important;
+}
+
+.sidebar-body .show {
+  display: none;
 }
 @media screen and (max-width: 816px) {
   .tasks {

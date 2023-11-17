@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/styles/BigSidebar.css";
 import AccordionComponent from "./AccordionComponent";
 import { MdAdminPanelSettings } from "react-icons/md";
 import AddTaskIcon from "@mui/icons-material/AddTask";
 import AutoModeIcon from "@mui/icons-material/AutoMode";
+import { useDashboardContext } from "../pages/DashboardLayout";
 import {
   NavLinks,
   NavLinksManual,
@@ -16,6 +17,9 @@ import {
 
 const BigSidebar = () => {
   //const { showSidebar } = useDashboardContext();
+  const { user } = useDashboardContext();
+  const { Role } = user;
+
   return (
     <div className="BigSidebar">
       <div className="">
@@ -31,19 +35,18 @@ const BigSidebar = () => {
           <AccordionComponent
             title=" Manual "
             childlings={<NavLinksManual isBigSidebar />}
-            icon={<AddTaskIcon />}
+            icon={<AddTaskIcon className="md-icon" />}
           />
 
           <AccordionComponent
             title=" Automation "
             childlings={<NavLinksAutomation isBigSidebar />}
-            icon={<AutoModeIcon />}
+            icon={<AutoModeIcon className="md-icon" />}
           />
-
           <AccordionComponent
-            title=" Administration"
+            title="Administration"
             childlings={<NavLinksAdmin isBigSidebar />}
-            icon={<MdAdminPanelSettings />}
+            icon={<MdAdminPanelSettings className="md-icon" />}
           />
         </div>
         <div className="container sidebar-footer">

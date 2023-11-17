@@ -12,10 +12,7 @@ const manual = [
   { text: "View Tasks", path: "all-tasks", icon: "" },
   { text: "Add Task", path: "add-task", icon: "" },
 ];
-const automation = [
-  { text: "Automation", path: "automation", icon: "" },
-  { text: "Admin", path: "admin", icon: "" },
-];
+const automation = [{ text: "Automation", path: "automation", icon: "" }];
 const admin = [{ text: "Admin", path: "admin", icon: "" }];
 const profile = [
   { text: "Profile", path: "view-profile", icon: <ImProfile /> },

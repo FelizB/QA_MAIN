@@ -264,6 +264,7 @@ export const showStats = async (req, res) => {
         count: { $sum: 1 },
       },
     },
+    { $sort: { createdAt: -1 } },
   ]);
 
   let BestPerforming = await taskModel.aggregate([
@@ -285,6 +286,8 @@ export const showStats = async (req, res) => {
     { $sort: { completed: -1 } },
     { $limit: 3 },
   ]);
+
+  const AllT = await TaskSchema.find().sort({ $natural: -1 });
 
   res.status(StatusCodes.OK).json({
     userStats,
