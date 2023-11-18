@@ -6,12 +6,7 @@ import {
 } from "../controllers/userController.js";
 import { validateUpdateUser } from "../middleware/validations.js";
 import { authorizePermissions } from "../middleware/authMiddleware.js";
-<<<<<<< HEAD
 import multer from "multer";
-=======
-import { upload } from "../middleware/multermiddleware.js";
->>>>>>> a7c3e6a28578bf3c9cca96f9cadabb50b81d2357
-
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/uploads");
