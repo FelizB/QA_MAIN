@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
     cb(null, fileName);
   },
 });
-upload = multer({ storage });
+const upload = multer({ storage });
 const router = Router();
 
 router.get("/current-user", getCurrentUser);
