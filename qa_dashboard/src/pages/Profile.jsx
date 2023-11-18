@@ -54,7 +54,7 @@ const Profile = () => {
     PF_Number,
   } = user;
   const navigation = useNavigation();
-
+  console.log(user);
   return (
     <div className="profile-page">
       <Form
@@ -122,9 +122,9 @@ const Profile = () => {
           </div>
           <div className="col">
             <PhoneInput
-              id="phone"
-              name="Phone_Number"
-              label="Phone Number"
+              id="Mobile"
+              name="Mobile_Number"
+              label="Mobile Number"
               length="12"
               value={Mobile_Number}
             />

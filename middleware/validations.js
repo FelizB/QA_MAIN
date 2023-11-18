@@ -141,8 +141,18 @@ export const validateUpdateUser = withValidationErrors([
     .isNumeric()
     .withMessage("Phone number must be numeric")
     .isLength({ min: 10 })
+    .withMessage("Numbers should not be less than 10")
     .isLength({ max: 12 })
     .withMessage("Numbers should not be less than 10"),
+  body("Mobile_Number")
+    .notEmpty()
+    .withMessage("Phone Number is required")
+    .isNumeric()
+    .withMessage("Phone number must be numeric")
+    .isLength({ min: 10 })
+    .withMessage("Numbers should not be less than 10")
+    .isLength({ max: 12 })
+    .withMessage("Number should not be more than 12"),
   body("Station").isIn(Object.values(STATION)).withMessage("Invalid Station"),
   body("Role").isIn(Object.values(ROLE)).withMessage("Invalid Role"),
 ]);
