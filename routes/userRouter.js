@@ -6,7 +6,7 @@ import {
 } from "../controllers/userController.js";
 import { validateUpdateUser } from "../middleware/validations.js";
 import { authorizePermissions } from "../middleware/authMiddleware.js";
-import upload from "../middleware/multermiddleware.js";
+import { upload } from "../middleware/multermiddleware.js";
 
 const router = Router();
 
