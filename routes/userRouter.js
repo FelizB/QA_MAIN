@@ -6,8 +6,18 @@ import {
 } from "../controllers/userController.js";
 import { validateUpdateUser } from "../middleware/validations.js";
 import { authorizePermissions } from "../middleware/authMiddleware.js";
-import upload from "../middleware/multermiddleware.js";
+import multer from "multer";
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public/uploads");
+  },
+  filename: (req, file, cb) => {
+    const fileName = file.originalname;
+    cb(null, fileName);
+  },
+});
+upload = multer({ storage });
 const router = Router();
 
 router.get("/current-user", getCurrentUser);
