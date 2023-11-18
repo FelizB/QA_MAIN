@@ -13,7 +13,7 @@ const LogInButton = (prop) => {
         value={prop.value}
         disabled={isSubmitting}
       >
-        {isSubmitting ? "submitting..." : prop.value}
+        {isSubmitting ? "Logging in..." : prop.value}
       </button>
     </div>
   );

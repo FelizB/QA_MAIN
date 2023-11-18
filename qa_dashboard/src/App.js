@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import customFetch from "./utils/customfetch";
 import {
   HomeLayout,
@@ -30,6 +32,7 @@ import { deleteTaskLoader } from "./pages/DeleteTask";
 import { adminLoader } from "./pages/Admin";
 import { profileAction } from "./pages/Profile";
 import { statsLoader } from "./pages/Stats";
+import ErrorElement from "./components/ErrorElement";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
@@ -38,6 +41,13 @@ export const checkDefaultTheme = () => {
 };
 checkDefaultTheme();
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+    },
+  },
+});
 const router = createBrowserRouter([
   {
     path: "/",
@@ -67,51 +77,61 @@ const router = createBrowserRouter([
         index: true,
         element: <Stats />,
         loader: statsLoader,
+        errorElement: <ErrorElement />,
       },
       {
         path: "product-houses",
         element: <ProductHouses />,
+        errorElement: <ErrorElement />,
       },
       {
         path: "all-tasks",
         element: <AllTasks />,
         loader: allTasksLoader,
+        errorElement: <ErrorElement />,
       },
       {
         path: "add-task",
         element: <AddTask />,
         action: addTaskAction,
+        errorElement: <ErrorElement />,
       },
       {
         path: "edit-task/:id",
         element: <EditTask />,
         loader: editTaskLoader,
         action: editTaskAction,
+        errorElement: <ErrorElement />,
       },
       {
         path: "delete-task/:id",
         element: <DeleteTask />,
         loader: deleteTaskLoader,
         action: deleteTaskAction,
+        errorElement: <ErrorElement />,
       },
       {
         path: "admin",
         element: <Admin />,
         loader: adminLoader,
+        errorElement: <ErrorElement />,
       },
       {
         path: "profile",
         element: <Profile />,
         action: profileAction,
+        errorElement: <ErrorElement />,
       },
       {
         path: "view-profile",
         element: <ViewProfile />,
+        errorElement: <ErrorElement />,
       },
       {
         path: "register",
         element: <Register />,
         action: registerAction,
+        errorElement: <ErrorElement />,
       },
     ],
   },
@@ -123,7 +143,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />;
+    </QueryClientProvider>
+  );
 }
 
 export default App;
